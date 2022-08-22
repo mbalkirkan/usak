@@ -66,4 +66,26 @@ Route::middleware([Authenticate::class])->group(function () {
         Route::post('/s-admin/news/delete', 'newsDelete')->name('admin.news.delete');
     });
 
+    Route::controller(\App\Http\Controllers\Pages\NewsController::class)->group(function () {
+        Route::get('/pages/news', 'index')->name('pages.news');
+        Route::get('/pages/news/{id?}', 'news')->name('pages.news.single');
+    });
+
+
+    Route::controller(\App\Http\Controllers\Admin\Pages\CollaborationController::class)->group(function () {
+
+        /**
+         * Collaboration
+         */
+        Route::get('/s-admin/pages/collaboration', 'index')->name('admin.pages.collaboration');
+        Route::post('/s-admin/pages/collaboration-create', 'collaborationCreate')->name('admin.pages.collaboration-create');
+        Route::post('/s-admin/pages/collaboration-delete', 'collaborationDelete')->name('admin.pages.collaboration-delete');
+        Route::post('/s-admin/pages/collaboration-update', 'collaborationUpdate')->name('admin.pages.collaboration-update');
+    });
+
+    Route::controller(\App\Http\Controllers\Pages\CollaborationController::class)->group(function () {
+        Route::get('/pages/collaboration', 'index')->name('pages.collaboration');
+        Route::get('/pages/collaboration/{id?}', 'collaboration')->name('pages.collaboration.single');
+    });
+
 });

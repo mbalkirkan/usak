@@ -257,7 +257,7 @@
                                     </div>
                                 </div>
                                 <!-- features-box-container end  -->
-                                <a href="portfolio.html" class="btn float-btn flat-btn color-btn">İş Birliklerimiz</a>
+                                <a href="{{route('pages.collaboration')}}" class="btn float-btn flat-btn color-btn">İş Birliklerimiz</a>
                             </div>
                         </div>
                     </div>
@@ -351,7 +351,7 @@
                         <div class="team-box" style="height: 508px;">
                             <div class="team-photo">
                                 <div class="overlay"></div>
-                                <a href="team-single.html">Detay</a>
+                                <a href="{{route('pages.news.single',['id'=>$new->id])}}">Detay</a>
                                 <img src="{{asset($new->image)}}" alt="" class="respimg">
                             </div>
                             <div class="team-info">
@@ -367,7 +367,7 @@
                     <div class="fl-wrap mar-top">
                         <div class="srv-link-text">
                             <h4>Daha fazla habere mi ihtiyacın var : </h4>
-                            <a href="services.html" class="btn float-btn flat-btn color-btn">Haber Arşivi</a>
+                            <a href="{{route('pages.news')}}" class="btn float-btn flat-btn color-btn">Haber Arşivi</a>
                         </div>
                     </div>
                 </div>
