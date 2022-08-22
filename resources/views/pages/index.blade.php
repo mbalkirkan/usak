@@ -378,33 +378,19 @@
                 <div class="sec-lines"></div>
             </section>
             <!-- section end -->
-            <!-- section-->
-            <section class="parallax-section dark-bg sec-half parallax-sec-half-left" data-scrollax-parent="true"
-                     id="sec4">
-                <div class="bg par-elem" data-bg="images/bg/1.jpg"
-                     data-scrollax="properties: { translateY: '30%' }"></div>
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="section-title">
-                        <h2>My Own <span> Developer's </span> and <br> Design Skills </h2>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla
-                            finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus
-                            suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. </p>
-                        <div class="horizonral-subtitle"><span>Power</span></div>
-                    </div>
-                </div>
-            </section>
-            <!-- section end -->
 
 
             <!--section -->
-            <section data-scrollax-parent="true" id="sec6">
+            <section data-scrollax-parent="true" class="parallax-section dark-bg sec-half parallax-sec-half-right" id="sec6">
+                <div class="bg par-elem" data-bg="{{$numbers->image}}"
+                     data-scrollax="properties: { translateY: '30%' }"></div>
+                <div class="overlay"></div>
                 <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }">
-                    Testimonials<span>//</span></div>
+                    Ekibimiz<span>//</span></div>
                 <div class="container">
                     <div class="section-title fl-wrap">
-                        <h3>Reviews</h3>
-                        <h2>My Clients and <span>Testimonials</span></h2>
+
+                        <h2>Ekip Arkadaşlarımız</h2>
                         <p>In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu
                             mi magna. Etiam suscipit commodo gravida. </p>
                     </div>
@@ -419,202 +405,75 @@
                         </div>
                     </div>
                     <div class="text-carousel cur_carousel-slider-container fl-wrap">
+
+                        @foreach($teams as $team)
                         <!--slick-item -->
                         <div class="slick-item">
                             <div class="text-carousel-item">
-                                <div class="popup-avatar"><img src="images/avatar/1.jpg" alt=""></div>
-                                <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                <div class="review-owner fl-wrap">Milka Antony - <span>Happy Client</span></div>
-                                <p> "In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus.
-                                    Nulla eu mi magna. Etiam suscipit commodo gravida. Lorem ipsum dolor sit amet, conse
-                                    ctetuer adipiscing elit, sed diam nonu mmy nibh euismod tincidunt ut laoreet dolore
-                                    magna aliquam erat."</p>
-                                <a href="#" class="testim-link">Via Facebook</a>
+                                <div class="popup-avatar"><img src="{{$team->image}}" alt=""></div>
+
+                                <div class="review-owner fl-wrap">{{$team->position}} {{$team->name}} - <span>{{$team->unit}} / {{$team->job}}</span></div>
+                                <p> "{{$team->description}}"</p>
+                                <a target="_blank" href="{{$team->yok_link}}" class="testim-link">Yök Akademik</a>
+                                <a href="" class="testim-link">-</a>
+                                    <a target="_blank" href="{{$team->linkedin_link}}" class="ms-5 testim-link">Linkedin</a>
+
                             </div>
                         </div>
                         <!--slick-item end -->
-                        <!--slick-item -->
-                        <div class="slick-item">
-                            <div class="text-carousel-item">
-                                <div class="popup-avatar"><img src="images/avatar/1.jpg" alt=""></div>
-                                <div class="listing-rating card-popup-rainingvis" data-starrating2="4"></div>
-                                <div class="review-owner fl-wrap">Milka Antony - <span>Happy Client</span></div>
-                                <p> "In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus.
-                                    Nulla eu mi magna. Etiam suscipit commodo gravida. Lorem ipsum dolor sit amet, conse
-                                    ctetuer adipiscing elit, sed diam nonu mmy nibh euismod tincidunt ut laoreet dolore
-                                    magna aliquam erat."</p>
-                                <a href="#" class="testim-link">Via Facebook</a>
-                            </div>
-                        </div>
-                        <!--slick-item end -->
-                        <!--slick-item -->
-                        <div class="slick-item">
-                            <div class="text-carousel-item">
-                                <div class="popup-avatar"><img src="images/avatar/1.jpg" alt=""></div>
-                                <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                <div class="review-owner fl-wrap">Milka Antony - <span>Happy Client</span></div>
-                                <p> "In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus.
-                                    Nulla eu mi magna. Etiam suscipit commodo gravida. Lorem ipsum dolor sit amet, conse
-                                    ctetuer adipiscing elit, sed diam nonu mmy nibh euismod tincidunt ut laoreet dolore
-                                    magna aliquam erat."</p>
-                                <a href="#" class="testim-link">Via Facebook</a>
-                            </div>
-                        </div>
-                        <!--slick-item end -->
-                        <!--slick-item -->
-                        <div class="slick-item">
-                            <div class="text-carousel-item">
-                                <div class="popup-avatar"><img src="images/avatar/1.jpg" alt=""></div>
-                                <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                <div class="review-owner fl-wrap">Milka Antony - <span>Happy Client</span></div>
-                                <p> "In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus.
-                                    Nulla eu mi magna. Etiam suscipit commodo gravida. Lorem ipsum dolor sit amet, conse
-                                    ctetuer adipiscing elit, sed diam nonu mmy nibh euismod tincidunt ut laoreet dolore
-                                    magna aliquam erat."</p>
-                                <a href="#" class="testim-link">Via Facebook</a>
-                            </div>
-                        </div>
-                        <!--slick-item end -->
+                        @endforeach
                     </div>
                 </div>
                 <!--slider-carousel-wrap end-->
-                <!-- client-list -->
-                <div class="fl-wrap">
-                    <div class="container">
-                        <ul class="client-list client-list-white">
-                            <li><a href="#" target="_blank"><img src="images/clients/1.png" alt=""></a></li>
-                            <li><a href="#" target="_blank"><img src="images/clients/1.png" alt=""></a></li>
-                            <li><a href="#" target="_blank"><img src="images/clients/1.png" alt=""></a></li>
-                            <li><a href="#" target="_blank"><img src="images/clients/1.png" alt=""></a></li>
-                            <li><a href="#" target="_blank"><img src="images/clients/1.png" alt=""></a></li>
-                        </ul>
-                    </div>
-                    <!-- client-list end-->
-                </div>
+
                 <div class="sec-lines"></div>
             </section>
             <!-- section end -->
 
-            <!--section -->
-            <section class="dark-bg" id="sec5">
-                <div class="fet_pr-carousel-title">
-                    <div class="fet_pr-carousel-title-item">
-                        <h3>My Featured Projects</h3>
-                        <p>In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu
-                            mi magna. Etiam suscipit commodo gravida.</p>
-                        <a href="portfolio.html" class="btn float-btn flat-btn color-btn mar-top">My Portfolio</a>
-                    </div>
-                </div>
-                <!--slider-carousel-wrap -->
-                <div class="slider-carousel-wrap fl-wrap">
-                    <!--fet_pr-carousel -->
-                    <div class="fet_pr-carousel cur_carousel-slider-container fl-wrap">
-                        <!--slick-item -->
-                        <div class="slick-item">
-                            <div class="fet_pr-carousel-box">
-                                <div class="fet_pr-carousel-box-media fl-wrap">
-                                    <img src="images/folio/web/slider/1.jpg" class="respimg" alt="">
-                                    <a href="images/folio/web/slider/1.jpg"
-                                       class="fet_pr-carousel-box-media-zoom   image-popup"><i
-                                            class="fal fa-search"></i></a>
-                                </div>
-                                <div class="fet_pr-carousel-box-text fl-wrap">
-                                    <h3><a href="portfolio-single.html">Lokomotive Project</a></h3>
-                                    <div class="fet_pr-carousel-cat"><a href="#">Branding</a> <a href="#">Web Design</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--slick-item end -->
-                        <!--slick-item -->
-                        <div class="slick-item">
-                            <div class="fet_pr-carousel-box">
-                                <div class="fet_pr-carousel-box-media fl-wrap">
-                                    <img src="images/folio/web/slider/1.jpg" class="respimg" alt="">
-                                    <a href="https://vimeo.com/183619886"
-                                       class="fet_pr-carousel-box-media-zoom   image-popup"><i class="fal fa-play"></i></a>
-                                </div>
-                                <div class="fet_pr-carousel-box-text fl-wrap">
-                                    <h3><a href="portfolio-single.html">Architecture Agensy</a></h3>
-                                    <div class="fet_pr-carousel-cat"><a href="#">Photography</a> <a href="#">Web
-                                            Design</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--slick-item end -->
-                        <!--slick-item -->
-                        <div class="slick-item">
-                            <div class="fet_pr-carousel-box">
-                                <div class="fet_pr-carousel-box-media fl-wrap">
-                                    <img src="images/folio/web/slider/1.jpg" class="respimg" alt="">
-                                    <a href="images/folio/web/slider/1.jpg"
-                                       class="fet_pr-carousel-box-media-zoom   image-popup"><i
-                                            class="fal fa-search"></i></a>
-                                </div>
-                                <div class="fet_pr-carousel-box-text fl-wrap">
-                                    <h3><a href="portfolio-single.html">Corporate website</a></h3>
-                                    <div class="fet_pr-carousel-cat"><a href="#">Branding</a> <a href="#">Web</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--slick-item end -->
-                        <!--slick-item -->
-                        <div class="slick-item">
-                            <div class="fet_pr-carousel-box">
-                                <div class="fet_pr-carousel-box-media fl-wrap">
-                                    <img src="images/folio/web/slider/1.jpg" class="respimg" alt="">
-                                    <a href="images/folio/web/slider/1.jpg"
-                                       class="fet_pr-carousel-box-media-zoom   image-popup"><i
-                                            class="fal fa-search"></i></a>
-                                </div>
-                                <div class="fet_pr-carousel-box-text fl-wrap">
-                                    <h3><a href="portfolio-single.html">Mobile ui Interface</a></h3>
-                                    <div class="fet_pr-carousel-cat"><a href="#">UI/UX</a> <a href="#">Web Design</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--slick-item end -->
-                        <!--slick-item -->
-                        <div class="slick-item">
-                            <div class="fet_pr-carousel-box">
-                                <div class="fet_pr-carousel-box-media fl-wrap">
-                                    <img src="images/folio/web/slider/1.jpg" class="respimg" alt="">
-                                    <a href="images/folio/web/slider/1.jpg"
-                                       class="fet_pr-carousel-box-media-zoom   image-popup"><i
-                                            class="fal fa-search"></i></a>
-                                </div>
-                                <div class="fet_pr-carousel-box-text fl-wrap">
-                                    <h3><a href="portfolio-single.html">Fashion Agensy</a></h3>
-                                    <div class="fet_pr-carousel-cat"><a href="#">Development</a> <a href="#">Web
-                                            Design</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--slick-item end -->
-                    </div>
-                    <!--fet_pr-carousel end -->
-                    <div class="sp-cont sp-arr sp-cont-prev"><i class="fal fa-long-arrow-left"></i></div>
-                    <div class="sp-cont sp-arr sp-cont-next"><i class="fal fa-long-arrow-right"></i></div>
-                </div>
-                <!--slider-carousel-wrap end-->
-                <div class="fet_pr-carousel-counter"></div>
-            </section>
-            <!-- section end -->
 
             <!-- section-->
-            <section class="dark-bg2 small-padding order-wrap">
+            <section data-scrollax-parent="true">
+                <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }"><span>//</span>haberler
+                </div>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h3>Ready To order Your Project ?</h3>
+                    <!-- section-title -->
+                    <div class="section-title fl-wrap">
+                        <h2>Hakkımızda <span>Haberler</span></h2>
+                        <p>Hakkımızda yapılan tüm gelişmeler yayınlar ve daha fazlası </p>
+                    </div>
+                    <!-- section-title end -->
+                    @foreach($news as $new)
+
+                        <div class="team-box" style="height: 508px;">
+                            <div class="team-photo">
+                                <div class="overlay"></div>
+                                <a href="{{route('pages.news.single',['id'=>$new->id])}}">Detay</a>
+                                <img src="{{asset($new->image)}}" alt="" class="respimg">
+                            </div>
+                            <div class="team-info">
+                                <h3>{{$new->title}}</h3>
+
+                                <p>{{$new->description}}  </p>
+
+                            </div>
                         </div>
-                        <div class="col-md-4"><a href="contacts.html" class="btn flat-btn color-btn">Get In Touch</a>
+                    @endforeach
+
+
+                    <div class="fl-wrap mar-top">
+                        <div class="srv-link-text">
+                            <h4>Daha fazla habere mi ihtiyacın var : </h4>
+                            <a href="{{route('pages.news')}}" class="btn float-btn flat-btn color-btn">Haber Arşivi</a>
                         </div>
                     </div>
                 </div>
+                <div class="bg-parallax-module" data-position-top="90" data-position-left="30"
+                     data-scrollax="properties: { translateY: '-150px' }"></div>
+                <div class="bg-parallax-module" data-position-top="80" data-position-left="80"
+                     data-scrollax="properties: { translateY: '350px' }"></div>
+                <div class="sec-lines"></div>
             </section>
-            <!-- section end-->
+            <!-- section end -->
         </div>
         <!-- Content end -->
         <!-- footer-->

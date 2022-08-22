@@ -7,6 +7,7 @@ use App\Models\Pages\Index\IndexPageAbout;
 use App\Models\Pages\Index\IndexPageNumber;
 use App\Models\Pages\Index\IndexPageSlider;
 use App\Models\Pages\News;
+use App\Models\Pages\Team;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -18,7 +19,8 @@ class IndexController extends Controller
         $about = IndexPageAbout::first();
         $news = News::orderBy('id', 'desc')->take(3)->get();
         $numbers = IndexPageNumber::first();
+        $teams = Team::all();
 
-        return view('pages.index', compact('sliders', 'about', 'news', 'numbers'));
+        return view('pages.index', compact('sliders', 'about', 'news', 'numbers', 'teams'));
     }
 }

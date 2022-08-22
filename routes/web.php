@@ -66,10 +66,18 @@ Route::middleware([Authenticate::class])->group(function () {
         Route::post('/s-admin/news/delete', 'newsDelete')->name('admin.news.delete');
     });
 
-    Route::controller(\App\Http\Controllers\Pages\NewsController::class)->group(function () {
-        Route::get('/pages/news', 'index')->name('pages.news');
-        Route::get('/pages/news/{id?}', 'news')->name('pages.news.single');
+    Route::controller(\App\Http\Controllers\Admin\Pages\TeamController::class)->group(function () {
+
+        /**
+         * Team
+         */
+
+        Route::get('/s-admin/pages/team', 'index')->name('admin.pages.team');
+        Route::post('/s-admin/pages/team-create', 'teamCreate')->name('admin.pages.team-create');
+        Route::post('/s-admin/pages/team-delete', 'teamDelete')->name('admin.pages.team-delete');
+        Route::post('/s-admin/pages/team-update', 'teamUpdate')->name('admin.pages.team-update');
     });
+
 
 
     Route::controller(\App\Http\Controllers\Admin\Pages\CollaborationController::class)->group(function () {
@@ -83,9 +91,17 @@ Route::middleware([Authenticate::class])->group(function () {
         Route::post('/s-admin/pages/collaboration-update', 'collaborationUpdate')->name('admin.pages.collaboration-update');
     });
 
-    Route::controller(\App\Http\Controllers\Pages\CollaborationController::class)->group(function () {
-        Route::get('/pages/collaboration', 'index')->name('pages.collaboration');
-        Route::get('/pages/collaboration/{id?}', 'collaboration')->name('pages.collaboration.single');
-    });
 
+
+});
+
+Route::controller(\App\Http\Controllers\Pages\NewsController::class)->group(function () {
+    Route::get('/pages/news', 'index')->name('pages.news');
+    Route::get('/pages/news/{id?}', 'news')->name('pages.news.single');
+});
+
+
+Route::controller(\App\Http\Controllers\Pages\CollaborationController::class)->group(function () {
+    Route::get('/pages/collaboration', 'index')->name('pages.collaboration');
+    Route::get('/pages/collaboration/{id?}', 'collaboration')->name('pages.collaboration.single');
 });

@@ -12,7 +12,7 @@ class AuthController extends Controller
     public function index(Request $request)
     {
         if(Auth::check())
-            return redirect()->route('admin.index');
+            return redirect()->route('admin.pages.index.slider');
 
         return view('admin.auth.login');
     }
