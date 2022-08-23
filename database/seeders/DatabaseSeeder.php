@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AuthTableSeeder::class);
         $this->call(IndexPageAboutTableSeeder::class);
         $this->call(IndexPageNumberTableSeeder::class);
+        $this->call(ActivityCategoryTableSeeder::class);
     }
 }

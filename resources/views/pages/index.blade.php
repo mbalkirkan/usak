@@ -433,27 +433,27 @@
 
             <!-- section-->
             <section data-scrollax-parent="true">
-                <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }"><span>//</span>haberler
+                <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }"><span>//</span>Faaliyetler
                 </div>
                 <div class="container">
                     <!-- section-title -->
                     <div class="section-title fl-wrap">
-                        <h2>Hakkımızda <span>Haberler</span></h2>
-                        <p>Hakkımızda yapılan tüm gelişmeler yayınlar ve daha fazlası </p>
+                        <h2> <span>Faaliyetlerimiz</span></h2>
+                        <p>Yapılan etkinlikler ve eğitimler</p>
                     </div>
                     <!-- section-title end -->
-                    @foreach($news as $new)
+                    @foreach($activities as $activity)
 
                         <div class="team-box" style="height: 508px;">
                             <div class="team-photo">
                                 <div class="overlay"></div>
-                                <a href="{{route('pages.news.single',['id'=>$new->id])}}">Detay</a>
-                                <img src="{{asset($new->image)}}" alt="" class="respimg">
+                                <a href="{{route('pages.news.single',['id'=>$activity->id])}}">Detay</a>
+                                <img src="{{asset($activity->image)}}" alt="" class="respimg">
                             </div>
                             <div class="team-info">
-                                <h3>{{$new->title}}</h3>
-
-                                <p>{{$new->description}}  </p>
+                                <h3>{{$activity->title}}</h3>
+                                <h4>{{$activity->activityCategory->name}} </h4>
+                                <p>{{$activity->description}}  </p>
 
                             </div>
                         </div>
@@ -462,8 +462,8 @@
 
                     <div class="fl-wrap mar-top">
                         <div class="srv-link-text">
-                            <h4>Daha fazla habere mi ihtiyacın var : </h4>
-                            <a href="{{route('pages.news')}}" class="btn float-btn flat-btn color-btn">Haber Arşivi</a>
+                            <h4>Daha fazla aktiviteye mi ihtiyacın var : </h4>
+                            <a href="{{route('pages.news')}}" class="btn float-btn flat-btn color-btn">Aktivite Arşivi</a>
                         </div>
                     </div>
                 </div>

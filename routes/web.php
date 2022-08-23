@@ -92,6 +92,24 @@ Route::middleware([Authenticate::class])->group(function () {
     });
 
 
+    Route::controller(\App\Http\Controllers\Admin\Pages\ActivityController::class)->group(function () {
+        /**
+         * Activity
+         */
+        Route::get('/s-admin/pages/activity', 'index')->name('admin.pages.activity');
+        Route::post('/s-admin/pages/activity-create', 'activityCreate')->name('admin.pages.activity-create');
+        Route::post('/s-admin/pages/activity-delete', 'activityDelete')->name('admin.pages.activity-delete');
+        Route::post('/s-admin/pages/activity-update', 'activityUpdate')->name('admin.pages.activity-update');
+
+
+        Route::post('/s-admin/pages/activity-category-create', 'activityCategoryCreate')->name('admin.pages.activity-category-create');
+        Route::post('/s-admin/pages/activity-category-delete', 'activityCategoryDelete')->name('admin.pages.activity-category-delete');
+        Route::post('/s-admin/pages/activity-category-update', 'activityCategoryUpdate')->name('admin.pages.activity-category-update');
+
+
+    });
+
+
 
 });
 

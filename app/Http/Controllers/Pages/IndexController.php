@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pages\Activity;
 use App\Models\Pages\Index\IndexPageAbout;
 use App\Models\Pages\Index\IndexPageNumber;
 use App\Models\Pages\Index\IndexPageSlider;
@@ -20,7 +21,10 @@ class IndexController extends Controller
         $news = News::orderBy('id', 'desc')->take(3)->get();
         $numbers = IndexPageNumber::first();
         $teams = Team::all();
+        $activities = Activity::with('activityCategory')->orderBy('id', 'desc')->take(5)->get();
 
-        return view('pages.index', compact('sliders', 'about', 'news', 'numbers', 'teams'));
+//        return $activities[0]->activityCategory->name;
+
+        return view('pages.index', compact('sliders', 'about', 'news', 'numbers', 'teams', 'activities'));
     }
 }
