@@ -106,7 +106,14 @@ Route::middleware([Authenticate::class])->group(function () {
         Route::post('/s-admin/pages/activity-category-delete', 'activityCategoryDelete')->name('admin.pages.activity-category-delete');
         Route::post('/s-admin/pages/activity-category-update', 'activityCategoryUpdate')->name('admin.pages.activity-category-update');
 
+    });
 
+    Route::controller(\App\Http\Controllers\Admin\PageSettingController::class)->group(function () {
+        /**
+         * Page Setting
+         */
+        Route::get('/s-admin/pages/setting', 'index')->name('admin.pages.setting');
+        Route::post('/s-admin/pages/setting-update', 'settingUpdate')->name('admin.pages.setting-update');
     });
 
 
@@ -122,4 +129,10 @@ Route::controller(\App\Http\Controllers\Pages\NewsController::class)->group(func
 Route::controller(\App\Http\Controllers\Pages\CollaborationController::class)->group(function () {
     Route::get('/pages/collaboration', 'index')->name('pages.collaboration');
     Route::get('/pages/collaboration/{id?}', 'collaboration')->name('pages.collaboration.single');
+});
+
+
+Route::controller(\App\Http\Controllers\Pages\ActivityController::class)->group(function () {
+    Route::get('/pages/activity', 'index')->name('pages.activity');
+    Route::get('/pages/activity/{id?}', 'activity')->name('pages.activity.single');
 });

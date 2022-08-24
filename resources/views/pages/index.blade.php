@@ -143,12 +143,12 @@
             </div>
             <nav class="scroll-nav scroll-init">
                 <ul>
-                    <li><a class="scroll-link act-link" href="#sec1">Hero</a></li>
-                    <li><a class="scroll-link" href="#sec2">About</a></li>
-                    <li><a class="scroll-link" href="#sec3">Resume</a></li>
-                    <li><a class="scroll-link" href="#sec4">Skills</a></li>
-                    <li><a class="scroll-link" href="#sec5">Projects</a></li>
-                    <li><a class="scroll-link" href="#sec6">Clients</a></li>
+                    <li><a class="scroll-link act-link" href="#sec1">Slider</a></li>
+                    <li><a class="scroll-link" href="#sec2">Hakkımızda</a></li>
+                    <li><a class="scroll-link" href="#sec3">İstatistikler</a></li>
+                    <li><a class="scroll-link" href="#sec4">Haberler</a></li>
+                    <li><a class="scroll-link" href="#sec5">Ekibimiz</a></li>
+                    <li><a class="scroll-link" href="#sec6">Faaliyetlerimiz</a></li>
                 </ul>
             </nav>
         </div>
@@ -270,7 +270,7 @@
             </section>
             <!-- section end-->
             <!-- section-->
-            <section class="parallax-section dark-bg sec-half parallax-sec-half-right" data-scrollax-parent="true">
+            <section class="parallax-section dark-bg sec-half parallax-sec-half-right" id="sec3" data-scrollax-parent="true">
                 <div class="bg par-elem" data-bg="{{$numbers->image}}"
                      data-scrollax="properties: { translateY: '30%' }"></div>
                 <div class="overlay"></div>
@@ -336,7 +336,7 @@
 
 
             <!-- section-->
-            <section data-scrollax-parent="true">
+            <section data-scrollax-parent="true" id="sec4">
                 <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }"><span>//</span>haberler
                 </div>
                 <div class="container">
@@ -381,7 +381,7 @@
 
 
             <!--section -->
-            <section data-scrollax-parent="true" class="parallax-section dark-bg sec-half parallax-sec-half-right" id="sec6">
+            <section data-scrollax-parent="true" class="parallax-section dark-bg sec-half parallax-sec-half-right" id="sec5">
                 <div class="bg par-elem" data-bg="{{$numbers->image}}"
                      data-scrollax="properties: { translateY: '30%' }"></div>
                 <div class="overlay"></div>
@@ -432,7 +432,7 @@
 
 
             <!-- section-->
-            <section data-scrollax-parent="true">
+            <section data-scrollax-parent="true" id="sec6">
                 <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }"><span>//</span>Faaliyetler
                 </div>
                 <div class="container">
@@ -447,7 +447,7 @@
                         <div class="team-box" style="height: 508px;">
                             <div class="team-photo">
                                 <div class="overlay"></div>
-                                <a href="{{route('pages.news.single',['id'=>$activity->id])}}">Detay</a>
+                                <a href="{{route('pages.activity.single',['id'=>$activity->id])}}">Detay</a>
                                 <img src="{{asset($activity->image)}}" alt="" class="respimg">
                             </div>
                             <div class="team-info">
@@ -463,7 +463,7 @@
                     <div class="fl-wrap mar-top">
                         <div class="srv-link-text">
                             <h4>Daha fazla aktiviteye mi ihtiyacın var : </h4>
-                            <a href="{{route('pages.news')}}" class="btn float-btn flat-btn color-btn">Aktivite Arşivi</a>
+                            <a href="{{route('pages.activity')}}" class="btn float-btn flat-btn color-btn">Faaliyet Arşivi</a>
                         </div>
                     </div>
                 </div>
