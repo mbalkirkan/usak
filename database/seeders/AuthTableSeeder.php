@@ -18,6 +18,7 @@ class AuthTableSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'hbmemati@gmail.com',
             'password' => bcrypt('123456'),
+            'username' => 'admin',
         ]);
     }
 }

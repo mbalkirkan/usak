@@ -10,6 +10,9 @@ Route::get('/', [\App\Http\Controllers\Pages\IndexController::class, 'index'])->
 Route::controller(\App\Http\Controllers\Auth\AuthController::class)->group(function () {
     Route::get('/login', 'index');
     Route::post('/login', 'login')->name('login');
+
+    Route::get('/auth/kimlik', 'redirect2kimlik');
+    Route::get('/auth/callback', "kimlik_callback");
 });
 
 Route::middleware([Authenticate::class])->group(function () {
@@ -157,3 +160,5 @@ Route::controller(\App\Http\Controllers\Pages\DynamicPageController::class)->gro
 
     Route::get('/pages/dynamic/{slug?}', 'index')->name('pages.dynamic');
 });
+
+

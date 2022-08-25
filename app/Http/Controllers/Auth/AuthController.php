@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -39,5 +41,28 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect()->route('index');
+    }
+    function redirect2kimlik()
+    {
+        return Socialite::driver('laravelpassport')->scopes(["*"])->redirect();
+    }
+    function kimlik_callback(Request $request)
+    {
+        if ($request->error) {
+            return redirect("/login");
+        }
+        $kimlik_user = Socialite::driver('laravelpassport')->user();
+
+        $user = User::firstOrCreate([
+            "username" => $kimlik_user->username,
+            'email' => $kimlik_user->email,]);
+
+        $user->name = $kimlik_user->name;
+        $user->save();
+
+        Auth::login($user);
+
+
+        return redirect("/");
     }
 }

@@ -30,4 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'laravelpassport' => [
+        'client_id' => "971b58b5-ee22-4b8c-bcda-73eb25ba4d62",
+        'client_secret' => "UxknB6sRkiWxvI5GE8rRS3TkeqGzEzCDDByuF1GQ",
+        'redirect' => "https://dts.usak.edu.tr/auth/callback",
+        'host' => "https://kimlik.usak.edu.tr/",
+    ],
+
 ];
