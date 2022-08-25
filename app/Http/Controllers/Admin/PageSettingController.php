@@ -17,11 +17,12 @@ class PageSettingController extends Controller
 
     public function settingUpdate(Request $request)
     {
-        $settings = PageSetting::all();
-        return $request->all();
-        foreach ($settings as $key=>$setting) {
-            $setting->value = $request->input($setting->name);
-            $setting->save();
+        foreach ($request->data as $setting) {
+            $pSetting = PageSetting::find($setting['id']);
+            $pSetting->title = $setting['title'];
+            $pSetting->description = $setting['description'];
+            $pSetting->image = $setting['image'];
+            $pSetting->save();
         }
         return ['status' => 'success'];
     }

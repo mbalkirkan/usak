@@ -116,6 +116,21 @@ Route::middleware([Authenticate::class])->group(function () {
         Route::post('/s-admin/pages/setting-update', 'settingUpdate')->name('admin.pages.setting-update');
     });
 
+    Route::controller(\App\Http\Controllers\Admin\Pages\DynamicPageController::class)->group(function () {
+        /**
+         * Dynamic Page
+         */
+        Route::get('/s-admin/pages/dynamic', 'index')->name('admin.pages.dynamic');
+        Route::post('/s-admin/pages/dynamic-create', 'dynamicCreate')->name('admin.pages.dynamic-create');
+        Route::post('/s-admin/pages/dynamic-delete', 'dynamicDelete')->name('admin.pages.dynamic-delete');
+        Route::post('/s-admin/pages/dynamic-update', 'dynamicUpdate')->name('admin.pages.dynamic-update');
+
+        Route::post('/s-admin/pages/dynamic-menu-create', 'dynamicMenuCreate')->name('admin.pages.dynamic-menu-create');
+        Route::post('/s-admin/pages/dynamic-menu-delete', 'dynamicMenuDelete')->name('admin.pages.dynamic-menu-delete');
+        Route::post('/s-admin/pages/dynamic-menu-update', 'dynamicMenuUpdate')->name('admin.pages.dynamic-menu-update');
+
+    });
+
 
 
 });
@@ -135,4 +150,10 @@ Route::controller(\App\Http\Controllers\Pages\CollaborationController::class)->g
 Route::controller(\App\Http\Controllers\Pages\ActivityController::class)->group(function () {
     Route::get('/pages/activity', 'index')->name('pages.activity');
     Route::get('/pages/activity/{id?}', 'activity')->name('pages.activity.single');
+});
+
+
+Route::controller(\App\Http\Controllers\Pages\DynamicPageController::class)->group(function () {
+
+    Route::get('/pages/dynamic/{slug?}', 'index')->name('pages.dynamic');
 });

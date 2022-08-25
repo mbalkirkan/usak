@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title', $page_settings->title)
+@section('description', $page_settings->description)
+@section('image', $page_settings->image)
 @section('content')
     @foreach($news as $new)
 

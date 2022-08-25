@@ -3,7 +3,7 @@
 <head>
     <!--=============== basic  ===============-->
     <meta charset="UTF-8">
-    <title>Uşak Üniversitesi | {{$title ?? ''}}</title>
+    <title>Uşak Üniversitesi | @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow"/>
     <meta name="keywords" content=""/>
@@ -28,7 +28,7 @@
     <!-- header-->
     <header class="main-header">
         <a class="logo-holder" href="{{route('index')}}">
-            <img src="{{asset('assets/images/logo.png')}}" alt="{{$title ?? ''}}">
+            <img src="{{asset('assets/images/logo.png')}}" alt="@yield('title')">
         </a>
         <!-- nav-button-wrap-->
         <div class="nav-button but-hol">
@@ -54,83 +54,7 @@
         <!--  showshare end -->
     </header>
     <!--  header end -->
-    <!--  navigation bar -->
-    <div class="nav-overlay">
-        <div class="tooltip color-bg">Close Menu</div>
-    </div>
-    <div class="nav-holder">
-        <a class="header-logo" href="index.html"><img src="images/logo2.png" alt=""></a>
-        <div class="nav-title"><span>Menu</span></div>
-        <div class="nav-inner-wrap">
-            <nav class="nav-inner sound-nav" id="menu">
-                <ul>
-                    <li>
-                        <a href="#">Home</a>
-                        <!--level 2 -->
-                        <ul>
-                            <li><a href="index.html">Half Slider</a></li>
-                            <li><a href="index2.html">Half Image</a></li>
-                            <li><a href="index3.html">Impulse Image</a></li>
-                            <li><a href="index4.html">Fullscreen  Image</a></li>
-                            <li><a href="index5.html">Fullscreen  Slider</a></li>
-                            <li><a href="index6.html">Slideshow</a></li>
-                            <li><a href="index7.html">Fullscreen Carousel</a></li>
-                            <li><a href="index8.html">Video</a></li>
-                        </ul>
-                        <!--level 2 end -->
-                    </li>
-                    <li>
-                        <a href="#">Portfolio</a>
-                        <!--level 2 -->
-                        <ul>
-                            <li><a href="portfolio.html">Masonry</a></li>
-                            <li><a href="portfolio2.html">Masonry 2</a></li>
-                            <li><a href="portfolio3.html">Boxed</a></li>
-                            <li><a href="portfolio4.html">Boxed 2 </a></li>
-                            <li><a href="portfolio5.html">Parallax</a></li>
-                            <li><a href="portfolio6.html">Parallax dark</a></li>
-                            <li><a href="portfolio7.html">Music</a></li>
-                            <li><a href="portfolio8.html">List</a></li>
-                            <li>
-                                <a href="#">Single</a>
-                                <!--level 3 -->
-                                <ul>
-                                    <li><a href="portfolio-single.html">Carousel</a></li>
-                                    <li><a href="portfolio-single2.html">Carousel 2</a></li>
-                                    <li><a href="portfolio-single3.html">Gallery</a></li>
-                                    <li><a href="portfolio-single4.html">Gallery 2</a></li>
-                                    <li><a href="portfolio-single5.html">Slider</a></li>
-                                    <li><a href="portfolio-single6.html">Showcase</a></li>
-                                    <li><a href="portfolio-single7.html">Fullscreen  Slider</a></li>
-                                    <li><a href="portfolio-single8.html">Video</a></li>
-                                    <li><a href="portfolio-single9.html">Music Album</a></li>
-                                </ul>
-                                <!--level 3 end -->
-                            </li>
-                        </ul>
-                        <!--level 2 end -->
-                    </li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contacts.html">Contacts</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li>
-                        <a href="#" class="act-link">Pages</a>
-                        <!--level 2 -->
-                        <ul>
-                            <li><a href="services2.html">Services 2</a></li>
-                            <li><a href="blog-single.html">Blog single</a></li>
-                            <li><a href="team.html" class="act-link">Team</a></li>
-                            <li><a href="team-single.html">Team Single</a></li>
-                            <li><a href="coming-soon.html">Coming soon</a></li>
-                            <li><a href="404.html">404</a></li>
-                        </ul>
-                        <!--level 2 end -->
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <!--  navigation bar end -->
+    @include('layouts.menu')
     <!--wrapper-->
     <div id="wrapper" class="single-page-wrap">
         <!-- Content-->
@@ -141,20 +65,20 @@
                     <div class="mousey">
                         <div class="scroller"></div>
                     </div>
-                    <span>Scroll Down</span>
+                    <span>Aşağı Kaydır</span>
                 </div>
                 <a href="{{route('index')}}" class="single-page-fixed-row-link"><i class="fal fa-arrow-left"></i> <span>Anasayfa</span></a>
             </div>
             <!-- section-->
             <section class="parallax-section dark-bg sec-half parallax-sec-half-right" data-scrollax-parent="true">
-                <div class="bg par-elem"  data-bg="{{$image ?? 'https://media.gettyimages.com/vectors/abstract-globe-background-vector-id1311148884?s=612x612'}}" data-scrollax="properties: { translateY: '30%' }"></div>
+                <div class="bg par-elem"  data-bg="@yield('image')" data-scrollax="properties: { translateY: '30%' }"></div>
                 <div class="overlay"></div>
                 <div class="pattern-bg"></div>
                 <div class="container">
                     <div class="section-title">
-                        <h2>{{$title ?? 'Haberler'}}</h2>
-                        <p> {{$description ?? 'Bölümümüz ile ilgili yayınlanan haberleri burdan bulabilirsiniz'}} </p>
-                        <div class="horizonral-subtitle"><span>{{$title ?? 'Haberler'}}</span></div>
+                        <h2>@yield('title')</h2>
+                        <p> @yield('description') </p>
+{{--                        <div class="horizonral-subtitle"><span>@yield('title')</span></div>--}}
                     </div>
 
                 </div>

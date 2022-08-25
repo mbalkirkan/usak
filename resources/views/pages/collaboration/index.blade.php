@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title', $page_settings->title)
+@section('description', $page_settings->description)
+@section('image', $page_settings->image)
 @section('content')
     <div class="serv-carousel-wrap slider-carousel-wrap fl-wrap">
         <div class="sp-cont  sp-cont-prev"><i class="fal fa-long-arrow-left"></i></div>
