@@ -65,7 +65,7 @@
                 <div class="gallery-filters">
                     <a href="#" class="gallery-filter  gallery-filter-active" data-filter="*">Hepsi</a>
                     @foreach($categories as $category)
-                        <a href="#" class="gallery-filter" data-filter=".{{strtolower($category->name)}}">{{$category->name}}</a>
+                        <a href="#" class="gallery-filter" data-filter=".category_{{($category->id)}}">{{$category->name}}</a>
                     @endforeach
 
                 </div>
@@ -81,7 +81,7 @@
                 <div class="gallery-items min-pad hde four-column">
                     @foreach($activities as $activity)
                     <!-- gallery-item-->
-                    <div class="gallery-item {{strtolower($activity->activityCategory->name)}}">
+                    <div class="gallery-item category_{{($activity->activityCategory->id)}}">
                         <div class="grid-item-holder">
                             <a href="{{$activity->image}}" class="fet_pr-carousel-box-media-zoom   image-popup"><i class="fal fa-search"></i></a>
                             <img  src="{{$activity->image}}"    alt="">
