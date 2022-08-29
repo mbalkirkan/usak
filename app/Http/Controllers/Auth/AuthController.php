@@ -54,6 +54,8 @@ class AuthController extends Controller
         $kimlik_user = Socialite::driver('laravelpassport')->user();
 
         $user = User::firstOrCreate([
+            'name' => $kimlik_user->name,
+
             "username" => $kimlik_user->username,
             'email' => $kimlik_user->email,]);
 
