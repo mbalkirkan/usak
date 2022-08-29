@@ -62,7 +62,13 @@ class AuthController extends Controller
         $user->name = $kimlik_user->name;
         $user->save();
 
-        Auth::login($user);
+        if($user->active)
+        {
+            Auth::login($user);
+            return route('admin.pages.index.slider');
+        }
+
+
 
 
         return redirect("/");
