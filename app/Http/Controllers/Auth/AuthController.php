@@ -65,7 +65,7 @@ class AuthController extends Controller
         if($user->active)
         {
             Auth::login($user);
-            return route('admin.pages.index.slider');
+            return redirect()->route('admin.pages.index.slider');
         }
 
 
