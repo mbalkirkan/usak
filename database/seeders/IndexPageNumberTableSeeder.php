@@ -19,12 +19,16 @@ class IndexPageNumberTableSeeder extends Seeder
         $number->image = 'https://5.imimg.com/data5/OI/QA/MY-34876737/mens-black-leather-jacket-500x500.jpg';
         $number->number1_title = 'Uşak DTS';
         $number->number1 = 145;
+        $number->number1_url = 'https://www.google.com';
         $number->number2_title = 'Uşak DTS';
         $number->number2 = 145;
+        $number->number2_url = 'https://www.google.com';
         $number->number3_title = 'Uşak DTS';
         $number->number3 = 145;
+        $number->number3_url = 'https://www.google.com';
         $number->number4_title = 'Uşak DTS';
         $number->number4 = 145;
+        $number->number4_url = 'https://www.google.com';
         $number->save();
     }
 }

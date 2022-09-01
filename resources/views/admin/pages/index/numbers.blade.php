@@ -92,6 +92,13 @@
                                            class="form-control form-control-solid"
                                            placeholder="1. Sayı"/>
                                 </div>
+                                <div class="mb-10 mt-10 col-md-6">
+                                    <label for="exampleFormControlInput1"
+                                           class="required form-label">Sayı 1 Adres</label>
+                                    <input type="text" name="number1_url" value="{{$numbers->number1_url}}"
+                                           class="form-control form-control-solid"
+                                           placeholder="1. Sayı Adresi"/>
+                                </div>
 
                                 <div class="mb-10 mt-10 col-md-4">
                                     <label for="exampleFormControlInput1"
@@ -108,6 +115,13 @@
                                            placeholder="2. Sayı"/>
                                 </div>
 
+                                <div class="mb-10 mt-10 col-md-6">
+                                    <label for="exampleFormControlInput1"
+                                           class="required form-label">Sayı 2 Adres</label>
+                                    <input type="text" name="number2_url" value="{{$numbers->number2_url}}"
+                                           class="form-control form-control-solid"
+                                           placeholder="2. Sayı Adresi"/>
+                                </div>
 
                                 <div class="mb-10 mt-10 col-md-4">
                                     <label for="exampleFormControlInput1"
@@ -123,7 +137,13 @@
                                            class="form-control form-control-solid"
                                            placeholder="3. Sayı"/>
                                 </div>
-
+                                <div class="mb-10 mt-10 col-md-6">
+                                    <label for="exampleFormControlInput1"
+                                           class="required form-label">Sayı 3 Adres</label>
+                                    <input type="text" name="number3_url" value="{{$numbers->number3_url}}"
+                                           class="form-control form-control-solid"
+                                           placeholder="3. Sayı Adresi"/>
+                                </div>
                                 <div class="mb-10 mt-10 col-md-4">
                                     <label for="exampleFormControlInput1"
                                            class="required form-label">Sayı 4 Başlık</label>
@@ -138,7 +158,13 @@
                                            class="form-control form-control-solid"
                                            placeholder="4. Sayı"/>
                                 </div>
-
+                                <div class="mb-10 mt-10 col-md-6">
+                                    <label for="exampleFormControlInput1"
+                                           class="required form-label">Sayı 4 Adres</label>
+                                    <input type="text" name="number4_url" value="{{$numbers->number4_url}}"
+                                           class="form-control form-control-solid"
+                                           placeholder="4. Sayı Adresi"/>
+                                </div>
 
                             </div>
                         </div>
@@ -196,15 +222,19 @@
                     '_token': $('meta[name="csrf-token"]').attr('content'),
                     'title': $('input[name="title"]').val(),
                     'image': $('input[name="image"]').attr('url'),
-                    'description':  $('input[name="description"]').val(),
+                    'description': $('input[name="description"]').val(),
                     'number1_title': $('input[name="number1_title"]').val(),
                     'number1': $('input[name="number1"]').val(),
+                    'number1_url': $('input[name="number1_url"]').val(),
                     'number2_title': $('input[name="number2_title"]').val(),
                     'number2': $('input[name="number2"]').val(),
+                    'number2_url': $('input[name="number2_url"]').val(),
                     'number3_title': $('input[name="number3_title"]').val(),
                     'number3': $('input[name="number3"]').val(),
+                    'number3_url': $('input[name="number3_url"]').val(),
                     'number4_title': $('input[name="number4_title"]').val(),
                     'number4': $('input[name="number4"]').val(),
+                    'number4_url': $('input[name="number4_url"]').val(),
                 },
                 success: function (data) {
                     toastr.success('Güncelleme Başarılı');

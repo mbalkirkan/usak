@@ -18,7 +18,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Slider - {{$loop->iteration }}</h3>
                                     <div class="card-toolbar">
-                                        <button type="button" data-id="{{$slider->id}}" data-image="{{$slider->image}}" data-title="{{$slider->title}}" class="edit_slider btn btn-sm btn-light">
+                                        <button type="button" data-id="{{$slider->id}}" data-image="{{$slider->image}}" data-description="{{$slider->description}}" data-title="{{$slider->title}}" class="edit_slider btn btn-sm btn-light">
                                             Düzenle
                                         </button>
                                         <button type="button" data-id="{{$slider->id}}" class="delete_slider ms-3 btn btn-sm btn-light-danger">
@@ -65,9 +65,14 @@
 
                     <div class="form-control mt-5">
                         <div class="mb-10 mt-10">
-                            <label for="exampleFormControlInput1" class="required form-label">Açıklma</label>
+                            <label for="exampleFormControlInput1" class="required form-label">Başlık</label>
                             <input type="text" name="title" class="form-control form-control-solid"
                                    placeholder="Görselle İlgili Gözükecek Üst Yazı "/>
+                        </div>
+                        <div class="mb-10 mt-10">
+                            <label for="exampleFormControlInput1" class="required form-label">Açıklama</label>
+                            <input type="text" name="description" class="form-control form-control-solid"
+                                   placeholder="Görselle İlgili Gözükecek Açıklama "/>
                         </div>
                         <div class="mb-10 mt-10">
                             <label for="exampleFormControlInput1" class="required form-label">Görsel</label>
@@ -124,9 +129,14 @@
 
                     <div class="form-control mt-5">
                         <div class="mb-10 mt-10">
-                            <label for="exampleFormControlInput1" class="required form-label">Açıklma</label>
+                            <label for="exampleFormControlInput1" class="required form-label">Başlık</label>
                             <input type="text" name="title2" class="form-control form-control-solid"
                                    placeholder="Görselle İlgili Gözükecek Üst Yazı "/>
+                        </div>
+                        <div class="mb-10 mt-10">
+                            <label for="exampleFormControlInput1" class="required form-label">Açıklama</label>
+                            <input type="text" name="description2" class="form-control form-control-solid"
+                                   placeholder="Görselle İlgili Gözükecek Açıklama "/>
                         </div>
                         <div class="mb-10 mt-10">
                             <label for="exampleFormControlInput1" class="required form-label">Görsel</label>
@@ -273,6 +283,7 @@
                 $('#create_slider').click(function () {
                     var title = $('input[name=title]').val();
                     var image = $('#slider_image').val();
+                    var description = $('input[name=description]').val();
                     if (title == '') {
                         toastr.error('Lütfen açıklama giriniz');
                     } else if (image == '') {
@@ -284,7 +295,7 @@
                             },
                             type: 'POST',
                             url: '{{route('admin.pages.index.slider-create')}}',
-                            data: {title: title, image: image},
+                            data: {title: title, image: image, description: description},
                             dataType: 'json',
                             success: function (data) {
                                 let status = data.status;
@@ -341,6 +352,7 @@
                 $('.edit_slider').click(function () {
                     $('#kt_modal_2').modal('show');
                     $('input[name=title2]').val($(this).data('title'));
+                    $('input[name=description2]').val($(this).data('description'));
                     $('#slider_image2').val($(this).data('image'));
                     $('#slider_id2').val($(this).data('id'));
                     myDropzone2.removeAllFiles();
@@ -353,6 +365,7 @@
                     var title = $('input[name=title2]').val();
                     var image = $('#slider_image2').val();
                     var id = $('#slider_id2').val();
+                    var description = $('input[name=description2]').val();
                     if (title == '') {
                         toastr.error('Lütfen açıklama giriniz');
                     } else if (image == '') {
@@ -364,7 +377,7 @@
                             },
                             type: 'POST',
                             url: '{{route('admin.pages.index.slider-update')}}',
-                            data: {title: title, image: image, id: id},
+                            data: {title: title, image: image, id: id, description: description},
                             dataType: 'json',
                             success: function (data) {
                                 let status = data.status;

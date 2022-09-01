@@ -32,14 +32,17 @@ class IndexController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'image' => 'required',
+            'description' => 'required',
         ], [
             'title.required' => 'Başlık boş girilemez !',
-            'image.required' => 'Resim boş girilemez !'
+            'image.required' => 'Resim boş girilemez !',
+            'description.required' => 'Açıklama boş girilemez !',
         ]);
 
         $slider = IndexPageSlider::create([
             'title' => $request->title,
             'image' => $request->image,
+            'description' => $request->description,
         ]);
 
         if($slider)
@@ -56,12 +59,16 @@ class IndexController extends Controller
             'description' => 'required',
             'number1_title' => 'required',
             'number1' => 'required',
+            'number1_url' => 'required',
             'number2_title' => 'required',
             'number2' => 'required',
+            'number2_url' => 'required',
             'number3_title' => 'required',
             'number3' => 'required',
+            'number3_url' => 'required',
             'number4_title' => 'required',
             'number4' => 'required',
+            'number4_url' => 'required',
 
         ], [
             'title.required' => 'Başlık boş girilemez !',
@@ -75,6 +82,10 @@ class IndexController extends Controller
             'number3.required' => '3. sayı boş girilemez !',
             'number4_title.required' => '4. sayı başlığı boş girilemez !',
             'number4.required' => '4. sayı boş girilemez !',
+            'number1_url.required' => '1. sayı bağlantısı boş girilemez !',
+            'number2_url.required' => '2. sayı bağlantısı boş girilemez !',
+            'number3_url.required' => '3. sayı bağlantısı boş girilemez !',
+            'number4_url.required' => '4. sayı bağlantısı boş girilemez !',
         ]);
         $number = IndexPageNumber::first();
         $number->title = $request->title;
@@ -88,6 +99,10 @@ class IndexController extends Controller
         $number->number3 = $request->number3;
         $number->number4_title = $request->number4_title;
         $number->number4 = $request->number4;
+        $number->number1_url = $request->number1_url;
+        $number->number2_url = $request->number2_url;
+        $number->number3_url = $request->number3_url;
+        $number->number4_url = $request->number4_url;
         $number->save();
         return response()->json(['status' => 'success', 'message' => 'Veriler başarıyla güncellendi !']);
 
@@ -114,9 +129,11 @@ class IndexController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'image' => 'required',
+            'description' => 'required',
         ], [
             'title.required' => 'Başlık boş girilemez !',
-            'image.required' => 'Resim boş girilemez !'
+            'image.required' => 'Resim boş girilemez !',
+            'description.required' => 'Açıklama boş girilemez !'
         ]);
 
         $slider = IndexPageSlider::find($request->id);
@@ -133,6 +150,7 @@ class IndexController extends Controller
 
             $slider->title = $request->title;
             $slider->image = $request->image;
+            $slider->description = $request->description;
             $slider->save();
             return response()->json(['status' => 'success', 'message' => 'Slider başarıyla güncellendi !']);
         }

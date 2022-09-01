@@ -9,9 +9,9 @@
         <nav class="nav-inner sound-nav" id="menu">
             <ul>
                 <li><a href="{{route('index')}}">Anasayfa</a></li>
-                <li><a href="{{route('pages.collaboration')}}">İşbirliklerimiz</a></li>
-                <li><a href="{{route('pages.news')}}">Haberler</a></li>
-                <li><a href="{{route('pages.activity')}}">Faaliyetler</a></li>
+{{--                <li><a href="{{route('pages.collaboration')}}">İşbirliklerimiz</a></li>--}}
+{{--                <li><a href="{{route('pages.news')}}">Haberler</a></li>--}}
+{{--                <li><a href="{{route('pages.activity')}}">Faaliyetler</a></li>--}}
 
                 @php($menu = \App\Models\DynamicPageMenu::with('dynamicPage')->with('children')->where('parent_id', null)->get())
 

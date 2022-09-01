@@ -54,7 +54,7 @@
         <!--  showshare end -->
     </header>
     <!--  header end -->
-  @include('layouts.menu')
+    @include('layouts.menu')
     <!-- wrapper-->
     <div id="wrapper">
         <!-- scroll-nav-wrap-->
@@ -95,7 +95,7 @@
                                     <div class="overlay"></div>
                                     <div class="half-hero-wrap">
                                         <h1>{{$slider->title}}</h1>
-                                        {{--                            <h4>I create web and graphic design</h4>--}}
+                                        <h4>{{$slider->description}}</h4>
                                         <div class="clearfix"></div>
 
                                     </div>
@@ -181,7 +181,8 @@
                                     </div>
                                 </div>
                                 <!-- features-box-container end  -->
-                                <a href="{{route('pages.collaboration')}}" class="btn float-btn flat-btn color-btn">İş Birliklerimiz</a>
+                                <a href="{{route('pages.collaboration')}}" class="btn float-btn flat-btn color-btn">İş
+                                    Birliklerimiz</a>
                             </div>
                         </div>
                     </div>
@@ -194,7 +195,8 @@
             </section>
             <!-- section end-->
             <!-- section-->
-            <section class="parallax-section dark-bg sec-half parallax-sec-half-right" id="sec3" data-scrollax-parent="true">
+            <section class="parallax-section dark-bg sec-half parallax-sec-half-right" id="sec3"
+                     data-scrollax-parent="true">
                 <div class="bg par-elem" data-bg="{{$numbers->image}}"
                      data-scrollax="properties: { translateY: '30%' }"></div>
                 <div class="overlay"></div>
@@ -213,7 +215,8 @@
                                         <div class="num" data-content="0" data-num="{{$numbers->number1}}">0</div>
                                     </div>
                                 </div>
-                                <h6>{{$numbers->number1_title}}</h6>
+                                <a href="{{$numbers->number1_url}}" target="_blank"><h6>{{$numbers->number1_title}}</h6>
+                                </a>
                             </div>
                         </div>
                         <!-- inline-facts end -->
@@ -225,7 +228,8 @@
                                         <div class="num" data-content="0" data-num="{{$numbers->number2}}">0</div>
                                     </div>
                                 </div>
-                                <h6>{{$numbers->number2_title}}</h6>
+                                <a href="{{$numbers->number2_url}}" target="_blank"><h6>{{$numbers->number2_title}}</h6>
+                                </a>
                             </div>
                         </div>
                         <!-- inline-facts end -->
@@ -237,7 +241,8 @@
                                         <div class="num" data-content="0" data-num="{{$numbers->number3}}">0</div>
                                     </div>
                                 </div>
-                                <h6>{{$numbers->number3_title}}</h6>
+                                <a href="{{$numbers->number3_url}}" target="_blank"><h6>{{$numbers->number3_title}}</h6>
+                                </a>
                             </div>
                         </div>
                         <!-- inline-facts end -->
@@ -249,7 +254,8 @@
                                         <div class="num" data-content="0" data-num="{{$numbers->number4}}">0</div>
                                     </div>
                                 </div>
-                                <h6>{{$numbers->number4_title}}</h6>
+                                <a href="{{$numbers->number4_url}}" target="_blank"><h6>{{$numbers->number4_title}}</h6>
+                                </a>
                             </div>
                         </div>
                         <!-- inline-facts end -->
@@ -305,8 +311,10 @@
 
 
             <!--section -->
-            <section data-scrollax-parent="true" class="parallax-section dark-bg sec-half parallax-sec-half-right" id="sec5">
-                <div class="bg par-elem" data-bg="https://pilot.usak.edu.tr/storage/sayfa/August2022/WhatsApp%20Image%202022-08-04%20at%209.27.03%20AM.jpeg"
+            <section data-scrollax-parent="true" class="parallax-section dark-bg sec-half parallax-sec-half-right"
+                     id="sec5">
+                <div class="bg par-elem"
+                     data-bg="https://pilot.usak.edu.tr/storage/sayfa/August2022/WhatsApp%20Image%202022-08-04%20at%209.27.03%20AM.jpeg"
                      data-scrollax="properties: { translateY: '30%' }"></div>
                 <div class="overlay"></div>
                 <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }">
@@ -331,20 +339,22 @@
                     <div class="text-carousel cur_carousel-slider-container fl-wrap">
 
                         @foreach($teams as $team)
-                        <!--slick-item -->
-                        <div class="slick-item">
-                            <div class="text-carousel-item">
-                                <div class="popup-avatar"><img src="{{$team->image}}" alt=""></div>
+                            <!--slick-item -->
+                            <div class="slick-item">
+                                <div class="text-carousel-item">
+                                    <div class="popup-avatar"><img src="{{$team->image}}" alt=""></div>
 
-                                <div class="review-owner fl-wrap">{{$team->position}} {{$team->name}} - <span>{{$team->unit}} / {{$team->job}}</span></div>
-                                <p> "{{$team->description}}"</p>
-                                <a target="_blank" href="{{$team->yok_link}}" class="testim-link">Yök Akademik</a>
-                                <a href="" class="testim-link">-</a>
-                                    <a target="_blank" href="{{$team->linkedin_link}}" class="ms-5 testim-link">Linkedin</a>
+                                    <div class="review-owner fl-wrap">{{$team->position}} {{$team->name}} - <span>{{$team->unit}} / {{$team->job}}</span>
+                                    </div>
+                                    <p> "{{$team->description}}"</p>
+                                    <a target="_blank" href="{{$team->yok_link}}" class="testim-link">Yök Akademik</a>
+                                    <a href="" class="testim-link">-</a>
+                                    <a target="_blank" href="{{$team->linkedin_link}}"
+                                       class="ms-5 testim-link">Linkedin</a>
 
+                                </div>
                             </div>
-                        </div>
-                        <!--slick-item end -->
+                            <!--slick-item end -->
                         @endforeach
                     </div>
                 </div>
@@ -362,7 +372,7 @@
                 <div class="container">
                     <!-- section-title -->
                     <div class="section-title fl-wrap">
-                        <h2> <span>Faaliyetlerimiz</span></h2>
+                        <h2><span>Faaliyetlerimiz</span></h2>
                         <p>Yapılan etkinlikler ve eğitimler</p>
                     </div>
                     <!-- section-title end -->
@@ -387,7 +397,8 @@
                     <div class="fl-wrap mar-top">
                         <div class="srv-link-text">
                             <h4>Daha fazla aktiviteye mi ihtiyacın var : </h4>
-                            <a href="{{route('pages.activity')}}" class="btn float-btn flat-btn color-btn">Faaliyet Arşivi</a>
+                            <a href="{{route('pages.activity')}}" class="btn float-btn flat-btn color-btn">Faaliyet
+                                Arşivi</a>
                         </div>
                     </div>
                 </div>
@@ -402,87 +413,9 @@
         <!-- Content end -->
         <!-- footer-->
         <div class="height-emulator fl-wrap"></div>
-        <footer class="main-footer fixed-footer">
-            <!--footer-inner-->
-            <div class="footer-inner fl-wrap">
-                <div class="container">
-                    <div class="partcile-dec" data-parcount="90"></div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="footer-title fl-wrap">
-                                <span>Solonick</span>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="footer-header fl-wrap"><span>01.</span>Last Twitts</div>
-                            <div class="footer-box fl-wrap">
-                                <div class="twitter-swiper-container fl-wrap" id="twitts-container"></div>
-                                <a href="#" class="btn float-btn trsp-btn">Follow</a>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="footer-header fl-wrap"><span>02.</span> Subscribe / Contacts</div>
-                            <!-- footer-box-->
-                            <div class="footer-box fl-wrap">
-                                <p>Want to be notified when we launch a new template or an udpate. Just sign up and
-                                    we'll send you a notification by email.</p>
-                                <div class="subcribe-form fl-wrap">
-                                    <form id="subscribe" class="fl-wrap">
-                                        <input class="enteremail" name="email" id="subscribe-email" placeholder="email"
-                                               spellcheck="false" type="text">
-                                        <button type="submit" id="subscribe-button" class="subscribe-button"><i
-                                                class="fal fa-paper-plane"></i> Send
-                                        </button>
-                                        <label for="subscribe-email" class="subscribe-message"></label>
-                                    </form>
-                                </div>
-                                <!-- footer-contacts-->
-                                <div class="footer-contacts fl-wrap">
-                                    <ul>
-                                        <li><i class="fal fa-phone"></i><span>Phone :</span><a
-                                                href="#">+489756412322</a></li>
-                                        <li><i class="fal fa-envelope"></i><span>Email :</span><a href="#">yourmail@domain.com</a>
-                                        </li>
-                                        <li><i class="fal fa-map-marker"></i><span>Address</span><a href="#">USA 27TH
-                                                Brooklyn NY</a></li>
-                                    </ul>
-                                </div>
-                                <!-- footer end -->
-                                <!-- footer-socilal -->
-                                <div class="footer-socilal fl-wrap">
-                                    <ul>
-                                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- footer-socilal end -->
-                            </div>
-                            <!-- footer-box end-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--footer-inne endr-->
-            <!--subfooter-->
-            <div class="subfooter fl-wrap">
-                <div class="container">
-                    <!-- policy-box-->
-                    <div class="policy-box">
-                        <span>&#169; Solonick 2018  /  All rights reserved. </span>
-                    </div>
-                    <!-- policy-box end-->
-                    <a href="#" class="to-top color-bg"><i class="fal fa-angle-up"></i><span></span></a>
-                </div>
-            </div>
-            <!--subfooter end-->
-        </footer>
+        @include('layouts.footer')
         <!-- footer end-->
-        <!-- contact-btn -->
-        <a class="contact-btn color-bg" href="contacts.html"><i
-                class="fal fa-envelope"></i><span>Get in Touch</span></a>
-        <!-- contact-btn end -->
+
     </div>
     <!--   content end -->
     <!-- share-wrapper -->

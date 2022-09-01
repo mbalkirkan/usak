@@ -17,6 +17,7 @@ class CreateIndexPageSlidersTable extends Migration
             $table->id();
             $table->string('image');
             $table->string('title');
+            $table->string('description');
             $table->timestamps();
         });
     }
