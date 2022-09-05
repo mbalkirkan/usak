@@ -4,9 +4,6 @@ use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [\App\Http\Controllers\Pages\IndexController::class, 'index'])->name('index');
-
-
 Route::controller(\App\Http\Controllers\Auth\AuthController::class)->group(function () {
     Route::get('/login', 'index');
     Route::post('/login', 'login')->name('login');
@@ -14,6 +11,36 @@ Route::controller(\App\Http\Controllers\Auth\AuthController::class)->group(funct
     Route::get('/auth/kimlik', 'redirect2kimlik');
     Route::get('/auth/callback', "kimlik_callback");
 });
+
+
+// route group language prefix
+
+    Route::get('/', [\App\Http\Controllers\Pages\IndexController::class, 'index'])->name('index');
+//    Route::get('/en', [\App\Http\Controllers\Pages\IndexController::class, 'index'])->name('en.index');
+
+    Route::controller(\App\Http\Controllers\Pages\NewsController::class)->group(function () {
+        Route::get('/pages/news', 'index')->name('pages.news');
+        Route::get('/pages/news/{id?}', 'news')->name('pages.news.single');
+    });
+
+
+    Route::controller(\App\Http\Controllers\Pages\CollaborationController::class)->group(function () {
+        Route::get('/pages/collaboration', 'index')->name('pages.collaboration');
+        Route::get('/pages/collaboration/{id?}', 'collaboration')->name('pages.collaboration.single');
+    });
+
+
+    Route::controller(\App\Http\Controllers\Pages\ActivityController::class)->group(function () {
+        Route::get('/pages/activity', 'index')->name('pages.activity');
+        Route::get('/pages/activity/{id?}', 'activity')->name('pages.activity.single');
+    });
+
+
+    Route::controller(\App\Http\Controllers\Pages\DynamicPageController::class)->group(function () {
+
+        Route::get('/pages/dynamic/{slug?}', 'index')->name('pages.dynamic');
+    });
+
 
 Route::middleware([Authenticate::class])->group(function () {
     Route::controller(\App\Http\Controllers\Admin\Pages\IndexController::class)->group(function () {
@@ -82,7 +109,6 @@ Route::middleware([Authenticate::class])->group(function () {
     });
 
 
-
     Route::controller(\App\Http\Controllers\Admin\Pages\CollaborationController::class)->group(function () {
 
         /**
@@ -135,30 +161,8 @@ Route::middleware([Authenticate::class])->group(function () {
     });
 
 
-
-});
-
-Route::controller(\App\Http\Controllers\Pages\NewsController::class)->group(function () {
-    Route::get('/pages/news', 'index')->name('pages.news');
-    Route::get('/pages/news/{id?}', 'news')->name('pages.news.single');
 });
 
 
-Route::controller(\App\Http\Controllers\Pages\CollaborationController::class)->group(function () {
-    Route::get('/pages/collaboration', 'index')->name('pages.collaboration');
-    Route::get('/pages/collaboration/{id?}', 'collaboration')->name('pages.collaboration.single');
-});
-
-
-Route::controller(\App\Http\Controllers\Pages\ActivityController::class)->group(function () {
-    Route::get('/pages/activity', 'index')->name('pages.activity');
-    Route::get('/pages/activity/{id?}', 'activity')->name('pages.activity.single');
-});
-
-
-Route::controller(\App\Http\Controllers\Pages\DynamicPageController::class)->group(function () {
-
-    Route::get('/pages/dynamic/{slug?}', 'index')->name('pages.dynamic');
-});
 
 

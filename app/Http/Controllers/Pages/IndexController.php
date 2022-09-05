@@ -17,6 +17,9 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
+
+
+
         $sliders = IndexPageSlider::all();
         $about = IndexPageAbout::first();
         $news = News::orderBy('id', 'desc')->take(3)->get();
@@ -25,9 +28,6 @@ class IndexController extends Controller
         $activities = Activity::with('activityCategory')->orderBy('id', 'desc')->take(3)->get();
 
 
-
-
-        $menu = \App\Models\DynamicPageMenu::with('dynamicPage')->with('children')->where('parent_id', null)->get();
 
 
 //        return $menu;

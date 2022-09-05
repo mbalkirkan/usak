@@ -17,7 +17,10 @@
                                 <div class="card-header">
                                     <h3 class="card-title">{{$item->title}}</h3>
                                     <div class="card-toolbar">
-                                        <button type="button" data-id="{{$item->id}}" data-image="{{$item->image}}" data-description="{{$item->description}}" data-content="{{$item->content}}" data-title="{{$item->title}}" class="edit_news btn btn-sm btn-light">
+                                        <button type="button" data-id="{{$item->getEn->id}}" data-image="{{$item->getEn->image}}" data-description="{{$item->getEn->description}}" data-content="{{$item->getEn->content}}" data-title="{{$item->getEn->title}}" class="edit_news btn btn-sm btn-light">
+                                           İngilizce Düzenle
+                                        </button>
+                                        <button type="button" data-id="{{$item->id}}" data-image="{{$item->image}}" data-description="{{$item->description}}" data-content="{{$item->content}}" data-title="{{$item->title}}" class="ms-3 edit_news btn btn-sm btn-light">
                                             Düzenle
                                         </button>
                                         <button type="button" data-id="{{$item->id}}" class="delete_news ms-3 btn btn-sm btn-light-danger">
