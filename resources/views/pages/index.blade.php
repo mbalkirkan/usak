@@ -68,7 +68,7 @@
             <nav class="scroll-nav scroll-init">
                 <ul>
                     <li><a class="scroll-link act-link" href="#sec1">Slider</a></li>
-                    <li><a class="scroll-link" href="#sec2">Hakkımızda</a></li>
+                    <li><a class="scroll-link" href="#sec2">İşbirliklerimiz</a></li>
                     <li><a class="scroll-link" href="#sec3">İstatistikler</a></li>
                     <li><a class="scroll-link" href="#sec4">Haberler</a></li>
                     <li><a class="scroll-link" href="#sec5">Ekibimiz</a></li>

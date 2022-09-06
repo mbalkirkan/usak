@@ -19,6 +19,7 @@ class CreateCollaborationsTable extends Migration
             $table->text('description');
             $table->text('image');
             $table->text('content');
+            $table->integer('master_id')->nullable();
             $table->timestamps();
         });
     }

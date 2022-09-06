@@ -22,6 +22,7 @@ class CreateActivitiesTable extends Migration
 
             $table->unsignedBigInteger('activity_category_id');
             $table->foreign('activity_category_id')->references('id')->on('activity_categories');
+            $table->integer('master_id')->nullable();
             $table->timestamps();
         });
     }

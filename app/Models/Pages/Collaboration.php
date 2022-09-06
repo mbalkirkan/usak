@@ -15,5 +15,11 @@ class Collaboration extends Model
         'description',
         'image',
         'content',
+        'master_id',
     ];
+
+    public function getEn()
+    {
+        return $this->hasOne(Collaboration::class, 'master_id');
+    }
 }

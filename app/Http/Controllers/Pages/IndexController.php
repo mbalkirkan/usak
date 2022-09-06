@@ -22,10 +22,10 @@ class IndexController extends Controller
 
         $sliders = IndexPageSlider::all();
         $about = IndexPageAbout::first();
-        $news = News::orderBy('id', 'desc')->take(3)->get();
+        $news = News::where('master_id', null)->orderBy('id', 'desc')->take(3)->get();
         $numbers = IndexPageNumber::first();
         $teams = Team::all();
-        $activities = Activity::with('activityCategory')->orderBy('id', 'desc')->take(3)->get();
+        $activities = Activity::with('activityCategory')->where('master_id', null)->orderBy('id', 'desc')->take(3)->get();
 
 
 

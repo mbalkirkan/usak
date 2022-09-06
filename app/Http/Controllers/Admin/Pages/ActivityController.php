@@ -12,7 +12,7 @@ class ActivityController extends Controller
 
     public function index(Request $request)
     {
-        $activities = Activity::all();
+        $activities = Activity::with('getEn')->where('master_id', null)->get();
         $categories = ActivityCategory::all();
         return view('admin.pages.activity', compact('activities', 'categories'));
     }
@@ -43,6 +43,18 @@ class ActivityController extends Controller
         $activity->image = $request->image;
         $activity->content = $request->input('content');
         $activity->save();
+
+
+        $activity_en = new Activity();
+        $activity_en->title = $request->title;
+        $activity_en->description = $request->description;
+        $activity_en->activity_category_id = $request->category_id;
+        $activity_en->image = $request->image;
+        $activity_en->content = $request->input('content');
+        $activity_en->master_id = $activity->id;
+        $activity_en->save();
+
+
         return ['status' => 'success'];
     }
 
@@ -56,6 +68,10 @@ class ActivityController extends Controller
             ]);
         $activity = Activity::find($request->id);
         $activity->delete();
+
+        $activity_en = Activity::where('master_id', $request->id)->first();
+        $activity_en->delete();
+
         return ['status' => 'success'];
     }
 
@@ -93,6 +109,7 @@ class ActivityController extends Controller
     {
         $category = new ActivityCategory();
         $category->name = $request->name;
+        $category->en_name = $request->name;
         $category->save();
         return ['status' => 'success'];
     }
@@ -108,6 +125,7 @@ class ActivityController extends Controller
     {
         $category = ActivityCategory::find($request->id);
         $category->name = $request->name;
+        $category->en_name = $request->en_name;
         $category->save();
         return ['status' => 'success'];
     }

@@ -19,7 +19,9 @@ class CreatePageSettingsTable extends Migration
             $table->text('title');
             $table->text('description');
             $table->text('image');
-
+            $table->text('title_en');
+            $table->text('description_en');
+            $table->text('image_en');
             $table->timestamps();
         });
     }

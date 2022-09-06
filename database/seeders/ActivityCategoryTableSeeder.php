@@ -16,9 +16,11 @@ class ActivityCategoryTableSeeder extends Seeder
     {
         ActivityCategory::create([
             'name' => 'Eğitim',
+            'en_name' => 'Education',
         ]);
         ActivityCategory::create([
             'name' => 'Etkinlik',
+            'en_name' => 'Activity',
         ]);
     }
 }

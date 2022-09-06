@@ -14,5 +14,8 @@ class PageSetting extends Model
         'title',
         'description',
         'image',
+        'title_en',
+        'description_en',
+        'image_en',
     ];
 }

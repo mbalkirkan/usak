@@ -18,5 +18,7 @@ class Team extends Model
         'description',
         'yok_link',
         'linkedin_link',
+
     ];
+
 }

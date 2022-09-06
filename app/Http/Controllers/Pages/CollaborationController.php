@@ -12,7 +12,7 @@ class CollaborationController extends Controller
 
     public function index(Request $request)
     {
-        $collaborations = Collaboration::all();
+        $collaborations = Collaboration::with('getEn')->where('master_id', null)->get();
         $page_settings = PageSetting::where('name', 'collaboration')->first();
         return view('pages.collaboration.index', compact('collaborations', 'page_settings'));
 

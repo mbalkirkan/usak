@@ -11,7 +11,7 @@ class NewsController extends Controller
 {
     public function index(Request $request)
     {
-        $news = News::all();
+        $news = News::where('master_id', null)->orderBy('id', 'desc')->get();
         $page_settings = PageSetting::where('name', 'news')->first();
         return view('pages.news.index', compact('news', 'page_settings'));
     }

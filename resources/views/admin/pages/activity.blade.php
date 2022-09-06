@@ -15,6 +15,9 @@
                                     <input id="category_{{$category->id}}" value="{{$category->name}}" type="text"
                                            class="form-control form-control-solid me-3 flex-grow-1"
                                            name="search"/>
+                                    <input id="category_en_{{$category->id}}" value="{{$category->en_name}}" type="text"
+                                           class="form-control form-control-solid me-3 flex-grow-1"
+                                           name="search"/>
 
                                     <button data-id="{{$category->id}}" type="button"
                                             class="update_btn btn btn-light-primary fw-bold flex-shrink-0"
@@ -61,11 +64,18 @@
                                     <div class="card-header">
                                         <h3 class="card-title">{{$item->title}}</h3>
                                         <div class="card-toolbar">
+                                            <button type="button" data-id="{{$item->getEn->id}}" data-image="{{$item->getEn->image}}"
+                                                    data-description="{{$item->getEn->description}}"
+                                                    data-content="{{$item->getEn->content}}" data-title="{{$item->getEn->title}}"
+                                                    data-category="{{$item->getEn->activity_category_id}}"
+                                                    class="edit_news btn btn-sm btn-light">
+                                               İngilizce Düzenle
+                                            </button>
                                             <button type="button" data-id="{{$item->id}}" data-image="{{$item->image}}"
                                                     data-description="{{$item->description}}"
                                                     data-content="{{$item->content}}" data-title="{{$item->title}}"
                                                     data-category="{{$item->activity_category_id}}"
-                                                    class="edit_news btn btn-sm btn-light">
+                                                    class="ms-3 edit_news btn btn-sm btn-light">
                                                 Düzenle
                                             </button>
                                             <button type="button" data-id="{{$item->id}}"
@@ -518,13 +528,14 @@
         $('.update_btn').on('click', function () {
             var id = $(this).data('id');
             var name = $('#category_' + id).val();
+            var en_name = $('#category_en_' + id).val();
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 type: 'POST',
                 url: '{{route('admin.pages.activity-category-update')}}',
-                data: {id: id, name: name},
+                data: {id: id, name: name, en_name: en_name},
                 dataType: 'json',
                 success: function (data) {
                     if (data.status == 'success') {

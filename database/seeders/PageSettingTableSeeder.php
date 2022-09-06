@@ -19,6 +19,10 @@ class PageSettingTableSeeder extends Seeder
         $pageSetting->title = 'Faaliyetler';
         $pageSetting->description = 'Faaliyetler';
         $pageSetting->image = 'https://media.gettyimages.com/vectors/abstract-globe-background-vector-id1311148884?s=612x612';
+
+        $pageSetting->title_en = 'Activities';
+        $pageSetting->description_en = 'Activities';
+        $pageSetting->image_en = 'https://media.gettyimages.com/vectors/abstract-globe-background-vector-id1311148884?s=612x612';
         $pageSetting->save();
 
 
@@ -27,6 +31,10 @@ class PageSettingTableSeeder extends Seeder
         $pageSetting2->title = 'İşbirliklerimiz';
         $pageSetting2->description = 'İşbirliklerimiz';
         $pageSetting2->image = 'https://media.gettyimages.com/vectors/abstract-globe-background-vector-id1311148884?s=612x612';
+
+        $pageSetting2->title_en = 'Collaborations';
+        $pageSetting2->description_en = 'Collaborations';
+        $pageSetting2->image_en = 'https://media.gettyimages.com/vectors/abstract-globe-background-vector-id1311148884?s=612x612';
         $pageSetting2->save();
 
         $pageSetting3 = new PageSetting();
@@ -34,6 +42,10 @@ class PageSettingTableSeeder extends Seeder
         $pageSetting3->title = 'Haberler';
         $pageSetting3->description = 'Haberler';
         $pageSetting3->image = 'https://media.gettyimages.com/vectors/abstract-globe-background-vector-id1311148884?s=612x612';
+
+        $pageSetting3->title_en = 'News';
+        $pageSetting3->description_en = 'News';
+        $pageSetting3->image_en = 'https://media.gettyimages.com/vectors/abstract-globe-background-vector-id1311148884?s=612x612';
         $pageSetting3->save();
     }
 }

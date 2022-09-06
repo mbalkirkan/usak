@@ -15,10 +15,17 @@ class Activity extends Model
         'image',
         'content',
         'activity_category_id',
+        'master_id',
     ];
 
     public function activityCategory()
     {
         return $this->belongsTo(ActivityCategory::class);
+    }
+
+    public function getEn()
+    {
+        // master id parent
+        return $this->hasOne(Activity::class, 'master_id');
     }
 }

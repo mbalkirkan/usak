@@ -22,6 +22,11 @@ class PageSettingController extends Controller
             $pSetting->title = $setting['title'];
             $pSetting->description = $setting['description'];
             $pSetting->image = $setting['image'];
+
+            $pSetting->title_en = $setting['title_en'];
+            $pSetting->description_en = $setting['description_en'];
+            $pSetting->image_en = $setting['image_en'];
+
             $pSetting->save();
         }
         return ['status' => 'success'];

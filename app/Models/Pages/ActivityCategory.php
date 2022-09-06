@@ -11,5 +11,6 @@ class ActivityCategory extends Model
 
     protected $fillable = [
         'name',
+        'en_name',
     ];
 }
