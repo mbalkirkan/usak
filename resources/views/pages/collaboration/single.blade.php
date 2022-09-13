@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section('title', $page_settings->title)
-@section('description', $page_settings->description)
-@section('image', $page_settings->image)
+@section('title', $en ? $page_settings->title_en : $page_settings->title )
+@section('description',$en ? $page_settings->description_en:   $page_settings->description)
+@section('image', $en ? $page_settings->image_en : $page_settings->image)
 @section('content')
     <div class="fl-wrap post-container">
         <div class="row">
@@ -37,16 +37,16 @@
                 <div class="blog-sidebar fl-wrap fixed-bar">
                     <!-- widget-wrap -->
                     <div class="widget-wrap fl-wrap">
-                        <h4 class="widget-title"><span>01.</span> Son Haberler</h4>
+                        <h4 class="widget-title"><span>01.</span> {{$en ? 'Last News' : 'Son Haberler'}}</h4>
                         <div class="widget-container fl-wrap">
                             <div class="widget-posts fl-wrap">
                                 <ul>
                                     @foreach($collaborations as $news)
                                         <li class="clearfix">
-                                            <a href="{{route('pages.collaboration.single',['id'=>$news->id])}}" class="widget-posts-img"><img src="{{$news->image}}"
+                                            <a href="{{route($en ? 'en.pages.collaboration.single' : 'pages.collaboration.single',['id'=>$news->id])}}" class="widget-posts-img"><img src="{{$news->image}}"
                                                                                                                                      class="respimg" alt=""></a>
                                             <div class="widget-posts-descr">
-                                                <a href="{{route('pages.collaboration.single',['id'=>$news->id])}}" title="">{{$news->title}}</a>
+                                                <a href="{{route($en ? 'en.pages.collaboration.single' : 'pages.collaboration.single',['id'=>$news->id])}}" title="">{{$news->title}}</a>
                                                 <span class="widget-posts-date"> {{$news->updated_at->formatLocalized('%D')}} </span>
                                             </div>
                                         </li>

@@ -66,9 +66,9 @@
                     <div class="mousey">
                         <div class="scroller"></div>
                     </div>
-                    <span>Aşağı Kaydır</span>
+                    <span>{{$en ? 'Scroll Down' : 'Aşağı Kaydır'}}</span>
                 </div>
-                <a href="{{route('index')}}" class="single-page-fixed-row-link"><i class="fal fa-arrow-left"></i> <span>Anasayfa</span></a>
+                <a href="{{route($en ? 'en.index' : 'index')}}" class="single-page-fixed-row-link"><i class="fal fa-arrow-left"></i> <span>{{$en ? 'Home Page' : 'Anasayfa'}}</span></a>
             </div>
             <!-- section-->
             <section class="parallax-section dark-bg sec-half parallax-sec-half-right" data-scrollax-parent="true">

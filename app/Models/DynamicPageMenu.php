@@ -12,6 +12,7 @@ class DynamicPageMenu extends Model
 
     protected $fillable = [
         'name',
+        'en_name',
         'parent_id',
         'page_id',
     ];

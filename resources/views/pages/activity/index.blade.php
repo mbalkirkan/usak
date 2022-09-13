@@ -3,7 +3,7 @@
 <head>
     <!--=============== basic  ===============-->
     <meta charset="UTF-8">
-    <title>Uşak Üniversitesi | {{$page_settings->title}}</title>
+    <title>Uşak Üniversitesi | {{$en ? $page_settings->title_en : $page_settings->title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow"/>
     <meta name="keywords" content=""/>
@@ -61,11 +61,11 @@
             <div class="single-page-decor"></div>
             <!-- filter-->
             <div class="fsp-filter">
-                <div class="filter-title"><i class="fal fa-filter"></i><span>Portfolio Filter</span></div>
+                <div class="filter-title"><i class="fal fa-filter"></i><span>{{$en ? 'Filters' : 'Filtreler'}}</span></div>
                 <div class="gallery-filters">
-                    <a href="#" class="gallery-filter  gallery-filter-active" data-filter="*">Hepsi</a>
+                    <a href="#" class="gallery-filter  gallery-filter-active" data-filter="*">{{$en ? 'All' : 'Hepsi'}}</a>
                     @foreach($categories as $category)
-                        <a href="#" class="gallery-filter" data-filter=".category_{{($category->id)}}">{{$category->name}}</a>
+                        <a href="#" class="gallery-filter" data-filter=".category_{{($category->id)}}">{{$en ? $category->en_name: $category->name}}</a>
                     @endforeach
 
                 </div>
@@ -88,8 +88,8 @@
                             <div class="box-item hd-box">
                                 <div class=" fl-wrap full-height">
                                     <div class="hd-box-wrap">
-                                        <h2><a href="{{route('pages.activity.single',['id'=>$activity->id])}}">{{$activity->title}}</a></h2>
-                                        <p><a href="#">{{$activity->activityCategory->name}}  </a></p>
+                                        <h2><a href="{{route($en ? 'en.pages.activity.single': 'pages.activity.single',['id'=>$activity->id])}}">{{$activity->title}}</a></h2>
+                                        <p><a href="#">{{$en ?$activity->activityCategory->en_name :$activity->activityCategory->name}}  </a></p>
                                     </div>
                                 </div>
                             </div>

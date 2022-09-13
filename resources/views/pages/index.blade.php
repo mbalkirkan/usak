@@ -49,7 +49,7 @@
         <!--  showshare -->
         <div class="show-share showshare">
             <i class="fal fa-retweet"></i>
-            <span>Paylaş</span>
+            <span>{{$en ? 'Share' : 'Paylaş'}}</span>
         </div>
         <!--  showshare end -->
     </header>
@@ -63,16 +63,16 @@
                 <div class="mousey">
                     <div class="scroller"></div>
                 </div>
-                <span>Scroll Down</span>
+                <span>{{$en ? 'Scroll Down' : 'Aşağı Kaydır'}}</span>
             </div>
             <nav class="scroll-nav scroll-init">
                 <ul>
                     <li><a class="scroll-link act-link" href="#sec1">Slider</a></li>
-                    <li><a class="scroll-link" href="#sec2">İşbirliklerimiz</a></li>
-                    <li><a class="scroll-link" href="#sec3">İstatistikler</a></li>
-                    <li><a class="scroll-link" href="#sec4">Haberler</a></li>
-                    <li><a class="scroll-link" href="#sec5">Ekibimiz</a></li>
-                    <li><a class="scroll-link" href="#sec6">Faaliyetlerimiz</a></li>
+                    <li><a class="scroll-link" href="#sec2">{{!$en ? 'İşbirliklerimiz' : 'Collaborations'}}</a></li>
+                    <li><a class="scroll-link" href="#sec3">{{!$en ? 'İstatistikler' : 'Statistics'}}</a></li>
+                    <li><a class="scroll-link" href="#sec4">{{!$en ? 'Haberler' : 'News'}}</a></li>
+                    <li><a class="scroll-link" href="#sec5">{{!$en ? 'Ekibimiz' : 'Teams'}}</a></li>
+                    <li><a class="scroll-link" href="#sec6">{{!$en ? 'Faaliyetlerimiz'  : 'Activities'}}</a></li>
                 </ul>
             </nav>
         </div>
@@ -118,7 +118,7 @@
         <div class="content">
             <!-- section-->
             <section data-scrollax-parent="true" id="sec2">
-                <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }"><span>//</span>HAKKIMIZDA
+                <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }"><span>//</span>{{$en ? 'ABOUT US' : 'HAKKIMIZDA'}}
                 </div>
                 <div class="container">
                     <div class="row">
@@ -132,11 +132,7 @@
                         <div class="col-md-7">
                             <div class="main-about fl-wrap">
                                 <h2>{{$about->main_title}}</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque.
-                                    Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien
-                                    vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur
-                                    convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In
-                                    fermentum facilisis massa, a consequat purus viverra.</p>
+
                                 <!-- features-box-container -->
                                 <div class="features-box-container fl-wrap">
                                     <div class="row">
@@ -267,13 +263,13 @@
 
             <!-- section-->
             <section data-scrollax-parent="true" id="sec4">
-                <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }"><span>//</span>haberler
+                <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }"><span>//</span>{{$en ? 'news' : 'Haberler '}}
                 </div>
                 <div class="container">
                     <!-- section-title -->
                     <div class="section-title fl-wrap">
-                        <h2>Hakkımızda <span>Haberler</span></h2>
-                        <p>Hakkımızda yapılan tüm gelişmeler yayınlar ve daha fazlası </p>
+                        <h2>   {!! $en ? 'ABOUT US <span>NEWS</span>' : 'Hakkımızda <span>Haberler</span>'  !!} </h2>
+                        <p> {{$en ? 'All developments made about us publications and more' : 'Hakkımızda yapılan tüm gelişmeler yayınlar ve daha fazlası'}}</p>
                     </div>
                     <!-- section-title end -->
                     @foreach($news as $new)
@@ -281,7 +277,7 @@
                         <div class="team-box" style="height: 508px;">
                             <div class="team-photo">
                                 <div class="overlay"></div>
-                                <a href="{{route('pages.news.single',['id'=>$new->id])}}">Detay</a>
+                                <a href="{{route('pages.news.single',['id'=>$new->id])}}">{{$en ? 'Read More' : 'Detay'}}</a>
                                 <img src="{{asset($new->image)}}" alt="" class="respimg">
                             </div>
                             <div class="team-info">
@@ -296,8 +292,8 @@
 
                     <div class="fl-wrap mar-top">
                         <div class="srv-link-text">
-                            <h4>Daha fazla habere mi ihtiyacın var : </h4>
-                            <a href="{{route('pages.news')}}" class="btn float-btn flat-btn color-btn">Haber Arşivi</a>
+                            <h4>{{$en ? 'Need more news:' : 'Daha fazla habere mi ihtiyacın var :'}} </h4>
+                            <a href="{{route('pages.news')}}" class="btn float-btn flat-btn color-btn">{{$en ? 'News Archive' : 'Haber Arşivi'}}</a>
                         </div>
                     </div>
                 </div>
@@ -318,13 +314,12 @@
                      data-scrollax="properties: { translateY: '30%' }"></div>
                 <div class="overlay"></div>
                 <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }">
-                    Ekibimiz<span>//</span></div>
+                    {{$en ? 'Teams' : 'Ekibimiz'}}<span>//</span></div>
                 <div class="container">
                     <div class="section-title fl-wrap">
 
-                        <h2>Ekip Arkadaşlarımız</h2>
-                        <p>In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu
-                            mi magna. Etiam suscipit commodo gravida. </p>
+                        <h2>{{$en ? 'Our Teammates' : 'Ekip Arkadaşlarımız'}}</h2>
+
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -367,13 +362,13 @@
 
             <!-- section-->
             <section data-scrollax-parent="true" id="sec6">
-                <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }"><span>//</span>Faaliyetler
+                <div class="section-subtitle" data-scrollax="properties: { translateY: '-250px' }"><span>//</span>{{$en ? 'Activities' : 'Faaliyetler'}}
                 </div>
                 <div class="container">
                     <!-- section-title -->
                     <div class="section-title fl-wrap">
-                        <h2><span>Faaliyetlerimiz</span></h2>
-                        <p>Yapılan etkinlikler ve eğitimler</p>
+                        <h2><span>{{$en ? 'Our Activities' : 'Faaliyetlerimiz'}}</span></h2>
+                        <p>{{$en ? 'Events and trainings' : 'Yapılan etkinlikler ve eğitimler'}}</p>
                     </div>
                     <!-- section-title end -->
                     @foreach($activities as $activity)
@@ -381,7 +376,7 @@
                         <div class="team-box" style="height: 508px;">
                             <div class="team-photo">
                                 <div class="overlay"></div>
-                                <a href="{{route('pages.activity.single',['id'=>$activity->id])}}">Detay</a>
+                                <a href="{{route('pages.activity.single',['id'=>$activity->id])}}">{{$en ? 'Read More' : 'Detay'}}</a>
                                 <img src="{{asset($activity->image)}}" alt="" class="respimg">
                             </div>
                             <div class="team-info">
@@ -396,9 +391,8 @@
 
                     <div class="fl-wrap mar-top">
                         <div class="srv-link-text">
-                            <h4>Daha fazla aktiviteye mi ihtiyacın var : </h4>
-                            <a href="{{route('pages.activity')}}" class="btn float-btn flat-btn color-btn">Faaliyet
-                                Arşivi</a>
+                            <h4> {{$en ? 'Need more activities:' : 'Daha fazla aktiviteye mi ihtiyacın var :'}}</h4>
+                            <a href="{{route('pages.activity')}}" class="btn float-btn flat-btn color-btn">{{$en ? 'Activity Archive' : 'Faaliyet Arşivi'}}</a>
                         </div>
                     </div>
                 </div>

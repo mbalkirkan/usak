@@ -15,6 +15,9 @@
                                     <input id="menu_name_{{$category->id}}"  placeholder="Menü İsmi" value="{{$category->name}}" type="text"
                                            class="form-control form-control-solid me-3 flex-grow-1"
                                            name="search"/>
+                                    <input id="menu_en_name_{{$category->id}}"  placeholder="İngilizce Menü İsmi" value="{{$category->en_name}}" type="text"
+                                           class="form-control form-control-solid me-3 flex-grow-1"
+                                           name="search"/>
                                     <select class="form-select form-select-solid " data-control="select2" id="menu_page_{{$category->id}}" data-placeholder="Sayfa" data-hide-search="true">
                                         <option></option>
                                         @foreach($dynamicPages as $page)
@@ -86,9 +89,14 @@
                                     <div class="card-header">
                                         <h3 class="card-title">{{$item->title}}</h3>
                                         <div class="card-toolbar">
+                                            <button type="button" data-id="{{$item->getEn->id}}" data-image="{{$item->getEn->image}}"
+                                                    data-content="{{$item->getEn->content}}" data-title="{{$item->getEn->title}}"
+                                                    class="edit_news btn btn-sm btn-light">
+                                                İngilizce Düzenle
+                                            </button>
                                             <button type="button" data-id="{{$item->id}}" data-image="{{$item->image}}"
                                                     data-content="{{$item->content}}" data-title="{{$item->title}}"
-                                                    class="edit_news btn btn-sm btn-light">
+                                                    class="ms-3 edit_news btn btn-sm btn-light">
                                                 Düzenle
                                             </button>
                                             <button type="button" data-id="{{$item->id}}"
@@ -506,6 +514,7 @@
         $('.update_btn').on('click', function () {
             var id = $(this).data('id');
             var name = $('#menu_name_' + id).val();
+            var en_name = $('#menu_en_name_' + id).val();
             var parent_id = $('#menu_parent_' + id).val();
             var page_id = $('#menu_page_' + id).val();
             $.ajax({
@@ -514,7 +523,7 @@
                 },
                 type: 'POST',
                 url: '{{route('admin.pages.dynamic-menu-update')}}',
-                data: {id: id, name: name, parent_id: parent_id, page_id: page_id},
+                data: {id: id, name: name, parent_id: parent_id, page_id: page_id, en_name: en_name},
                 dataType: 'json',
                 success: function (data) {
                     if (data.status == 'success') {

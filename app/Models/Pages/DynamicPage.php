@@ -14,5 +14,12 @@ class DynamicPage extends Model
         'slug',
         'content',
         'image',
+        'master_id',
     ];
+
+    public function getEn()
+    {
+        // master id parent
+        return $this->hasOne(DynamicPage::class, 'master_id');
+    }
 }

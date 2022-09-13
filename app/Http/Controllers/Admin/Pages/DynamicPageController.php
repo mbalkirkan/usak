@@ -14,7 +14,7 @@ class DynamicPageController extends Controller
 
     public function index(Request $request)
     {
-        $dynamicPages = DynamicPage::all();
+        $dynamicPages = DynamicPage::with('getEn')->where('master_id', null)->get();
         $dynamicMenus = DynamicPageMenu::all();
         return view('admin.pages.dynamic', compact('dynamicPages', 'dynamicMenus'));
     }
@@ -23,6 +23,7 @@ class DynamicPageController extends Controller
     {
         $dynamicPageMenu = new DynamicPageMenu();
         $dynamicPageMenu->name = $request->name;
+        $dynamicPageMenu->en_name = $request->name;
         $dynamicPageMenu->parent_id = $request->parent_id;
         $dynamicPageMenu->page_id = $request->page_id;
         $dynamicPageMenu->save();
@@ -33,6 +34,7 @@ class DynamicPageController extends Controller
     {
         $dynamicPageMenu = DynamicPageMenu::find($request->id);
         $dynamicPageMenu->name = $request->name;
+        $dynamicPageMenu->en_name = $request->en_name;
         $dynamicPageMenu->parent_id = $request->parent_id;
         $dynamicPageMenu->page_id = $request->page_id;
         $dynamicPageMenu->save();
@@ -54,6 +56,16 @@ class DynamicPageController extends Controller
         $dynamicPage->image = $request->image;
         $dynamicPage->slug = Str::slug($request->title);
         $dynamicPage->save();
+
+        $dynamicPageEn = new DynamicPage();
+        $dynamicPageEn->title = $request->title;
+        $dynamicPageEn->content = $request->input('content');
+        $dynamicPageEn->image = $request->image;
+        $dynamicPageEn->slug = Str::slug($request->title);
+        $dynamicPageEn->master_id = $dynamicPage->id;
+        $dynamicPageEn->save();
+
+
         return response()->json(['status' => 'success', 'message' => 'Dynamic Page Created Successfully']);
     }
 

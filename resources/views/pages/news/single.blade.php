@@ -1,14 +1,14 @@
 @extends('layouts.app')
-@section('title', $page_settings->title)
-@section('description', $page_settings->description)
-@section('image', $page_settings->image)
+@section('title', $en ? $page_settings->title_en : $page_settings->title )
+@section('description',$en ? $page_settings->description_en:   $page_settings->description)
+@section('image', $en ? $page_settings->image_en : $page_settings->image)
 @section('content')
     <div class="fl-wrap post-container">
         <div class="row">
             <div class="col-md-8">
                 <!-- post -->
                 <div class="post fl-wrap fw-post">
-                    <h2><a href="{{route('pages.news.single',['id'=>$new->id])}}"><span>{{strtoupper( $new->title)}}</span></a></h2>
+                    <h2><a href="{{route($en ? 'en.pages.news.single' : 'pages.news.single',['id'=>$new->id])}}"><span>{{strtoupper( $new->title)}}</span></a></h2>
                     <div class="parallax-header"><a href="#">{{$new->updated_at->formatLocalized('%D')}}</a></div>
                     <!-- blog media -->
                     <div class="blog-media fl-wrap nomar-bottom">
@@ -37,16 +37,16 @@
                 <div class="blog-sidebar fl-wrap fixed-bar">
                     <!-- widget-wrap -->
                     <div class="widget-wrap fl-wrap">
-                        <h4 class="widget-title"><span>01.</span> Son Haberler</h4>
+                        <h4 class="widget-title"><span>01.</span> {{$en ? 'Recent News' : 'Son Haberler'}}</h4>
                         <div class="widget-container fl-wrap">
                             <div class="widget-posts fl-wrap">
                                 <ul>
                                     @foreach($news4 as $news)
                                     <li class="clearfix">
-                                        <a href="{{route('pages.news.single',['id'=>$news->id])}}" class="widget-posts-img"><img src="{{$news->image}}"
+                                        <a href="{{route($en ? 'en.pages.news.single' : 'pages.news.single',['id'=>$news->id])}}" class="widget-posts-img"><img src="{{$news->image}}"
                                                                                   class="respimg" alt=""></a>
                                         <div class="widget-posts-descr">
-                                            <a href="{{route('pages.news.single',['id'=>$news->id])}}" title="">{{$news->title}}</a>
+                                            <a href="{{route($en ? 'en.pages.news.single' : 'pages.news.single',['id'=>$news->id])}}" title="">{{$news->title}}</a>
                                             <span class="widget-posts-date"> {{$news->updated_at->formatLocalized('%D')}} </span>
                                         </div>
                                     </li>

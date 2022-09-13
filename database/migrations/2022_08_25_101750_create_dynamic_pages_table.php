@@ -18,8 +18,8 @@ class CreateDynamicPagesTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('content');
+            $table->integer('master_id')->nullable();
             $table->text('image')->nullable();
-
             $table->timestamps();
         });
     }

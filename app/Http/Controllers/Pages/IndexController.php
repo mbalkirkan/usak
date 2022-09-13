@@ -26,14 +26,24 @@ class IndexController extends Controller
         $numbers = IndexPageNumber::first();
         $teams = Team::all();
         $activities = Activity::with('activityCategory')->where('master_id', null)->orderBy('id', 'desc')->take(3)->get();
+        $en = false;
+        return view('pages.index', compact('sliders', 'about', 'news', 'numbers', 'teams', 'activities', 'en'));
+    }
+
+
+    public function en_index(Request $request)
+    {
 
 
 
+        $sliders = IndexPageSlider::all();
+        $about = IndexPageAbout::first();
+        $news = News::where('master_id','!=', null)->orderBy('id', 'desc')->take(3)->get();
+        $numbers = IndexPageNumber::first();
+        $teams = Team::all();
+        $activities = Activity::with('activityCategory')->where('master_id', '!=',null)->orderBy('id', 'desc')->take(3)->get();
+        $en = true;
 
-//        return $menu;
-
-//        return $activities[0]->activityCategory->name;
-
-        return view('pages.index', compact('sliders', 'about', 'news', 'numbers', 'teams', 'activities'));
+        return view('pages.index', compact('sliders', 'about', 'news', 'numbers', 'teams', 'activities', 'en'));
     }
 }
