@@ -17,7 +17,7 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
-
+//        app()->setLocale('en');
 
 
         $sliders = IndexPageSlider::all();

@@ -49,6 +49,8 @@ Route::controller(\App\Http\Controllers\Pages\ActivityController::class)->group(
 Route::controller(\App\Http\Controllers\Pages\DynamicPageController::class)->group(function () {
 
     Route::get('/pages/dynamic/{slug?}', 'index')->name('pages.dynamic');
+
+    Route::get('/en/pages/dynamic/{slug?}', 'en_index')->name('en.pages.dynamic');
 });
 
 

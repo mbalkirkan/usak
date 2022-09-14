@@ -22,4 +22,10 @@ class DynamicPage extends Model
         // master id parent
         return $this->hasOne(DynamicPage::class, 'master_id');
     }
+
+    public function getTr()
+    {
+        // master id child
+        return $this->belongsTo(DynamicPage::class, 'master_id');
+    }
 }

@@ -14,6 +14,52 @@
     <link type="text/css" rel="stylesheet" href="{{asset('assets/css/plugins.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('assets/css/color.css')}}">
+
+    <style>
+        .language-selector span:not(.active):hover {
+            border-radius: 100%;
+            color: #fff;
+        }
+        .language-selector img{
+            margin:11px auto 5px;
+            border:1px solid #333;
+            display:block;
+
+        }
+        /* V LANGUAGE SWITCHER */
+        .vertical-language-selector {
+            display:block;
+            width:100%;
+            text-align:center;
+        }
+        .vertical-language-selector span {
+            display: block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            color: rgba(255, 255, 255, 0.41);
+            font-size: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+            margin:1px auto 5px;
+
+        }
+        .language-selector span.active {
+            border: 1px solid rgb(3, 157, 226);
+
+        }
+        @media only screen and (max-width: 1064px) {
+            .vertical-language-selector {
+                display: none;
+            }
+
+            /* === END === */
+
+        }
+
+    </style>
+
     @yield('page_styles')
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
@@ -28,7 +74,7 @@
 <div id="main">
     <!-- header-->
     <header class="main-header">
-        <a class="logo-holder" href="{{route('index')}}">
+        <a class="logo-holder" href="{{route($en ? 'en.index' :'index')}}">
             <img src="{{asset('assets/images/logo.png')}}" alt="@yield('title')">
         </a>
         <!-- nav-button-wrap-->
@@ -38,6 +84,8 @@
             <span class="nbs"></span>
             <div class="menu-button-text">Menu</div>
         </div>
+        @include('layouts.languages')
+
         <!-- nav-button-wrap end-->
         <div class="header-social">
             <ul>
@@ -68,7 +116,8 @@
                     </div>
                     <span>{{$en ? 'Scroll Down' : 'Aşağı Kaydır'}}</span>
                 </div>
-                <a href="{{route($en ? 'en.index' : 'index')}}" class="single-page-fixed-row-link"><i class="fal fa-arrow-left"></i> <span>{{$en ? 'Home Page' : 'Anasayfa'}}</span></a>
+                <a href="{{route($en ? 'en.index' : 'index')}}" class="single-page-fixed-row-link"><i
+                        class="fal fa-arrow-left"></i> <span>{{$en ? 'Home Page' : 'Anasayfa'}}</span></a>
             </div>
             <!-- section-->
             <section class="parallax-section dark-bg sec-half parallax-sec-half-right" data-scrollax-parent="true">

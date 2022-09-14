@@ -26,4 +26,8 @@ class DynamicPageMenu extends Model
     {
         return $this->hasMany(DynamicPageMenu::class, 'parent_id');
     }
+
+
+
+
 }

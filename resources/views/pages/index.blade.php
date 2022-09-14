@@ -15,6 +15,51 @@
     <link type="text/css" rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('assets/css/color.css')}}">
     <!--=============== favicons ===============-->
+
+    <style>
+        .language-selector span:not(.active):hover {
+            border-radius: 100%;
+            color: #fff;
+        }
+        .language-selector img{
+            margin:11px auto 5px;
+            border:1px solid #333;
+            display:block;
+
+        }
+        /* V LANGUAGE SWITCHER */
+        .vertical-language-selector {
+            display:block;
+            width:100%;
+            text-align:center;
+        }
+        .vertical-language-selector span {
+            display: block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            color: rgba(255, 255, 255, 0.41);
+            font-size: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+            margin:1px auto 5px;
+
+        }
+        .language-selector span.active {
+            border: 1px solid rgb(3, 157, 226);
+
+        }
+        @media only screen and (max-width: 1064px) {
+            .vertical-language-selector {
+                display: none;
+            }
+
+            /* === END === */
+
+        }
+
+    </style>
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 </head>
 <body>
@@ -27,7 +72,7 @@
 <div id="main">
     <!-- header-->
     <header class="main-header">
-        <a class="logo-holder" href="{{route('index')}}">
+        <a class="logo-holder" href="{{route($en ? 'en.index' :'index')}}">
             <img src="{{asset('assets/images/logo.png')}}" alt="{{$title ?? ''}}">
         </a>
         <!-- nav-button-wrap-->
@@ -37,6 +82,9 @@
             <span class="nbs"></span>
             <div class="menu-button-text">Menu</div>
         </div>
+
+
+        @include('layouts.languages')
         <!-- nav-button-wrap end-->
         <div class="header-social">
             <ul>
@@ -177,8 +225,7 @@
                                     </div>
                                 </div>
                                 <!-- features-box-container end  -->
-                                <a href="{{route('pages.collaboration')}}" class="btn float-btn flat-btn color-btn">İş
-                                    Birliklerimiz</a>
+                                <a href="{{route($en ? 'en.pages.collaboration' : 'pages.collaboration')}}" class="btn float-btn flat-btn color-btn">{{$en ? 'Our Collabrations' : 'İş Birliklerimiz'}}</a>
                             </div>
                         </div>
                     </div>
@@ -293,7 +340,7 @@
                     <div class="fl-wrap mar-top">
                         <div class="srv-link-text">
                             <h4>{{$en ? 'Need more news:' : 'Daha fazla habere mi ihtiyacın var :'}} </h4>
-                            <a href="{{route('pages.news')}}" class="btn float-btn flat-btn color-btn">{{$en ? 'News Archive' : 'Haber Arşivi'}}</a>
+                            <a href="{{route($en ? 'en.pages.news' :'pages.news')}}" class="btn float-btn flat-btn color-btn">{{$en ? 'News Archive' : 'Haber Arşivi'}}</a>
                         </div>
                     </div>
                 </div>
@@ -392,7 +439,7 @@
                     <div class="fl-wrap mar-top">
                         <div class="srv-link-text">
                             <h4> {{$en ? 'Need more activities:' : 'Daha fazla aktiviteye mi ihtiyacın var :'}}</h4>
-                            <a href="{{route('pages.activity')}}" class="btn float-btn flat-btn color-btn">{{$en ? 'Activity Archive' : 'Faaliyet Arşivi'}}</a>
+                            <a href="{{route($en ? 'en.pages.activity' : 'pages.activity')}}" class="btn float-btn flat-btn color-btn">{{$en ? 'Activity Archive' : 'Faaliyet Arşivi'}}</a>
                         </div>
                     </div>
                 </div>

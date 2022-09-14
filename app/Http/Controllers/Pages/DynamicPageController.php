@@ -12,6 +12,21 @@ class DynamicPageController extends Controller
     {
         $slug = $request->slug;
         $dynamicPage = DynamicPage::where('slug', $slug)->first();
-        return view('pages.dynamic', compact('dynamicPage'));
+        $en = false;
+        return view('pages.dynamic', compact('dynamicPage', 'en'));
     }
+
+
+    public function en_index(Request $request)
+    {
+        $slug = $request->slug;
+        $dynamicPage = DynamicPage::where('slug', $slug)->first();
+//        $dynamicPage = $dynamicPage->getEn;
+
+        $en = true;
+
+
+        return view('pages.dynamic', compact('dynamicPage', 'en'));
+    }
+
 }
